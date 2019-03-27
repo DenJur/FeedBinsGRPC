@@ -1,12 +1,53 @@
-plugins {
-    id 'java'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.8'
+    }
 }
 
+plugins {
+    id "com.google.protobuf" version "0.8.8"
+    id "java"
+    id "idea"
+}
+
+apply plugin: 'idea'
+
 group 'uk.ac.hud.u1467085'
-version '1.0-SNAPSHOT'
+version '1.0'
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.7.0"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.19.0'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/src/"
+}
 
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    compile 'io.grpc:grpc-all:1.19.0'
+}
+
+idea {
+    module {
+        sourceDirs += file("${projectDir}/src/main/java");
+        sourceDirs += file("${projectDir}/src/main/grpc");
+    }
 }
