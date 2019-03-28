@@ -20,7 +20,6 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
 
     @Override
     public synchronized void registerForUpdates(Empty request, StreamObserver<BinStatusUpdate> responseObserver) {
-        super.registerForUpdates(request, responseObserver);
         ServerCallStreamObserver<BinStatusUpdate> castObserver = (ServerCallStreamObserver<BinStatusUpdate>) responseObserver;
         castObserver.setOnCancelHandler(() -> observers.remove(castObserver));
         observers.add(castObserver);
@@ -28,7 +27,6 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
 
     @Override
     public synchronized void flushBin(Empty request, StreamObserver<OperationStatusResponse> responseObserver) {
-        super.flushBin(request, responseObserver);
         bin.flush();
         notifyObservers();
         responseObserver.onCompleted();
@@ -36,14 +34,12 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
 
     @Override
     public synchronized void inspectBin(Empty request, StreamObserver<BinStatusUpdate> responseObserver) {
-        super.inspectBin(request, responseObserver);
         responseObserver.onNext(buildNewStatus());
         responseObserver.onCompleted();
     }
 
     @Override
     public synchronized void addStuff(StuffAmount request, StreamObserver<OperationStatusResponse> responseObserver) {
-        super.addStuff(request, responseObserver);
         try{
             bin.addAmount(request.getStuffAmount());
             responseObserver.onNext(OperationStatusResponse.newBuilder()
@@ -67,7 +63,6 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
 
     @Override
     public synchronized void changeStuff(Stuff request, StreamObserver<OperationStatusResponse> responseObserver) {
-        super.changeStuff(request, responseObserver);
         bin.changeStuffName(request.getStuffName());
         responseObserver.onNext(OperationStatusResponse.newBuilder()
                 .setResult(OperationStatusResponse.OperationStatus.SUCCESS)

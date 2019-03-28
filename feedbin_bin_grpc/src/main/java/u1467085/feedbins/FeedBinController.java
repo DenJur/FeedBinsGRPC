@@ -51,18 +51,18 @@ public final class FeedBinController {
       "IL\020\001\"\032\n\005Stuff\022\021\n\tstuffName\030\001 \001(\t\"\"\n\013Stuf" +
       "fAmount\022\023\n\013stuffAmount\030\001 \001(\005\"X\n\017BinStatu" +
       "sUpdate\022\036\n\005stuff\030\001 \001(\0132\017.feedbins.Stuff\022" +
-      "%\n\006amount\030\002 \001(\0132\025.feedbins.StuffAmount2\354" +
-      "\002\n\016FeedBinService\022I\n\022registerForUpdates\022" +
+      "%\n\006amount\030\002 \001(\0132\025.feedbins.StuffAmount2\366" +
+      "\002\n\016FeedBinService\022K\n\022registerForUpdates\022" +
       "\026.google.protobuf.Empty\032\031.feedbins.BinSt" +
-      "atusUpdate0\001\022E\n\010flushBin\022\026.google.protob" +
-      "uf.Empty\032!.feedbins.OperationStatusRespo" +
-      "nse\022?\n\ninspectBin\022\026.google.protobuf.Empt" +
-      "y\032\031.feedbins.BinStatusUpdate\022D\n\010addStuff" +
-      "\022\025.feedbins.StuffAmount\032!.feedbins.Opera" +
-      "tionStatusResponse\022A\n\013changeStuff\022\017.feed" +
-      "bins.Stuff\032!.feedbins.OperationStatusRes" +
-      "ponseB-\n\021u1467085.feedbinsB\021FeedBinContr" +
-      "ollerP\001\242\002\002FBb\006proto3"
+      "atusUpdate\"\0000\001\022G\n\010flushBin\022\026.google.prot" +
+      "obuf.Empty\032!.feedbins.OperationStatusRes" +
+      "ponse\"\000\022A\n\ninspectBin\022\026.google.protobuf." +
+      "Empty\032\031.feedbins.BinStatusUpdate\"\000\022F\n\010ad" +
+      "dStuff\022\025.feedbins.StuffAmount\032!.feedbins" +
+      ".OperationStatusResponse\"\000\022C\n\013changeStuf" +
+      "f\022\017.feedbins.Stuff\032!.feedbins.OperationS" +
+      "tatusResponse\"\000B-\n\021u1467085.feedbinsB\021Fe" +
+      "edBinControllerP\001\242\002\002FBb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

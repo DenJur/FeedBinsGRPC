@@ -32,9 +32,9 @@ message BinStatusUpdate {
 }
 
 service FeedBinService {
-    rpc registerForUpdates (google.protobuf.Empty) returns (stream BinStatusUpdate);
-    rpc flushBin(google.protobuf.Empty) returns (OperationStatusResponse);
-    rpc inspectBin(google.protobuf.Empty) returns (BinStatusUpdate);
-    rpc addStuff(StuffAmount) returns (OperationStatusResponse);
-    rpc changeStuff(Stuff) returns (OperationStatusResponse);
+    rpc registerForUpdates (google.protobuf.Empty) returns (stream BinStatusUpdate) {}
+    rpc flushBin(google.protobuf.Empty) returns (OperationStatusResponse) {}
+    rpc inspectBin(google.protobuf.Empty) returns (BinStatusUpdate) {}
+    rpc addStuff(StuffAmount) returns (OperationStatusResponse) {}
+    rpc changeStuff(Stuff) returns (OperationStatusResponse) {}
 }
