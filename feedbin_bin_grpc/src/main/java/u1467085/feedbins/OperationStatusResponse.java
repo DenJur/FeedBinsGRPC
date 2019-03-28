@@ -4,19 +4,19 @@
 package u1467085.feedbins;
 
 /**
- * Protobuf type {@code feedbins.ChatMessage}
+ * Protobuf type {@code feedbins.OperationStatusResponse}
  */
-public  final class ChatMessage extends
+public  final class OperationStatusResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:feedbins.ChatMessage)
-    ChatMessageOrBuilder {
+    // @@protoc_insertion_point(message_implements:feedbins.OperationStatusResponse)
+    OperationStatusResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ChatMessage.newBuilder() to construct.
-  private ChatMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use OperationStatusResponse.newBuilder() to construct.
+  private OperationStatusResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ChatMessage() {
-    from_ = "";
+  private OperationStatusResponse() {
+    result_ = 0;
     message_ = "";
   }
 
@@ -25,7 +25,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ChatMessage(
+  private OperationStatusResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -44,10 +44,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
+            int rawValue = input.readEnum();
 
-            from_ = s;
+            result_ = rawValue;
             break;
           }
           case 18: {
@@ -77,49 +77,130 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessage_descriptor;
+    return u1467085.feedbins.FeedBinController.internal_static_feedbins_OperationStatusResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessage_fieldAccessorTable
+    return u1467085.feedbins.FeedBinController.internal_static_feedbins_OperationStatusResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            u1467085.feedbins.ChatMessage.class, u1467085.feedbins.ChatMessage.Builder.class);
+            u1467085.feedbins.OperationStatusResponse.class, u1467085.feedbins.OperationStatusResponse.Builder.class);
   }
 
-  public static final int FROM_FIELD_NUMBER = 1;
-  private volatile java.lang.Object from_;
   /**
-   * <code>string from = 1;</code>
+   * Protobuf enum {@code feedbins.OperationStatusResponse.OperationStatus}
    */
-  public java.lang.String getFrom() {
-    java.lang.Object ref = from_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      from_ = s;
-      return s;
+  public enum OperationStatus
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SUCCESS = 0;</code>
+     */
+    SUCCESS(0),
+    /**
+     * <code>FAIL = 1;</code>
+     */
+    FAIL(1),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SUCCESS = 0;</code>
+     */
+    public static final int SUCCESS_VALUE = 0;
+    /**
+     * <code>FAIL = 1;</code>
+     */
+    public static final int FAIL_VALUE = 1;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
     }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static OperationStatus valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static OperationStatus forNumber(int value) {
+      switch (value) {
+        case 0: return SUCCESS;
+        case 1: return FAIL;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<OperationStatus>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        OperationStatus> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<OperationStatus>() {
+            public OperationStatus findValueByNumber(int number) {
+              return OperationStatus.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return u1467085.feedbins.OperationStatusResponse.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final OperationStatus[] VALUES = values();
+
+    public static OperationStatus valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private OperationStatus(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:feedbins.OperationStatusResponse.OperationStatus)
+  }
+
+  public static final int RESULT_FIELD_NUMBER = 1;
+  private int result_;
+  /**
+   * <code>.feedbins.OperationStatusResponse.OperationStatus result = 1;</code>
+   */
+  public int getResultValue() {
+    return result_;
   }
   /**
-   * <code>string from = 1;</code>
+   * <code>.feedbins.OperationStatusResponse.OperationStatus result = 1;</code>
    */
-  public com.google.protobuf.ByteString
-      getFromBytes() {
-    java.lang.Object ref = from_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      from_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public u1467085.feedbins.OperationStatusResponse.OperationStatus getResult() {
+    @SuppressWarnings("deprecation")
+    u1467085.feedbins.OperationStatusResponse.OperationStatus result = u1467085.feedbins.OperationStatusResponse.OperationStatus.valueOf(result_);
+    return result == null ? u1467085.feedbins.OperationStatusResponse.OperationStatus.UNRECOGNIZED : result;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 2;
@@ -170,8 +251,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFromBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, from_);
+    if (result_ != u1467085.feedbins.OperationStatusResponse.OperationStatus.SUCCESS.getNumber()) {
+      output.writeEnum(1, result_);
     }
     if (!getMessageBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
@@ -185,8 +266,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getFromBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, from_);
+    if (result_ != u1467085.feedbins.OperationStatusResponse.OperationStatus.SUCCESS.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(1, result_);
     }
     if (!getMessageBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
@@ -201,13 +283,12 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof u1467085.feedbins.ChatMessage)) {
+    if (!(obj instanceof u1467085.feedbins.OperationStatusResponse)) {
       return super.equals(obj);
     }
-    u1467085.feedbins.ChatMessage other = (u1467085.feedbins.ChatMessage) obj;
+    u1467085.feedbins.OperationStatusResponse other = (u1467085.feedbins.OperationStatusResponse) obj;
 
-    if (!getFrom()
-        .equals(other.getFrom())) return false;
+    if (result_ != other.result_) return false;
     if (!getMessage()
         .equals(other.getMessage())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -221,8 +302,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + FROM_FIELD_NUMBER;
-    hash = (53 * hash) + getFrom().hashCode();
+    hash = (37 * hash) + RESULT_FIELD_NUMBER;
+    hash = (53 * hash) + result_;
     hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getMessage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -230,69 +311,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(byte[] data)
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(java.io.InputStream input)
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessage parseDelimitedFrom(java.io.InputStream input)
+  public static u1467085.feedbins.OperationStatusResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static u1467085.feedbins.ChatMessage parseDelimitedFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static u1467085.feedbins.ChatMessage parseFrom(
+  public static u1467085.feedbins.OperationStatusResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -305,7 +386,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(u1467085.feedbins.ChatMessage prototype) {
+  public static Builder newBuilder(u1467085.feedbins.OperationStatusResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -321,26 +402,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code feedbins.ChatMessage}
+   * Protobuf type {@code feedbins.OperationStatusResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:feedbins.ChatMessage)
-      u1467085.feedbins.ChatMessageOrBuilder {
+      // @@protoc_insertion_point(builder_implements:feedbins.OperationStatusResponse)
+      u1467085.feedbins.OperationStatusResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessage_descriptor;
+      return u1467085.feedbins.FeedBinController.internal_static_feedbins_OperationStatusResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessage_fieldAccessorTable
+      return u1467085.feedbins.FeedBinController.internal_static_feedbins_OperationStatusResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              u1467085.feedbins.ChatMessage.class, u1467085.feedbins.ChatMessage.Builder.class);
+              u1467085.feedbins.OperationStatusResponse.class, u1467085.feedbins.OperationStatusResponse.Builder.class);
     }
 
-    // Construct using u1467085.feedbins.ChatMessage.newBuilder()
+    // Construct using u1467085.feedbins.OperationStatusResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -358,7 +439,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      from_ = "";
+      result_ = 0;
 
       message_ = "";
 
@@ -368,17 +449,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessage_descriptor;
+      return u1467085.feedbins.FeedBinController.internal_static_feedbins_OperationStatusResponse_descriptor;
     }
 
     @java.lang.Override
-    public u1467085.feedbins.ChatMessage getDefaultInstanceForType() {
-      return u1467085.feedbins.ChatMessage.getDefaultInstance();
+    public u1467085.feedbins.OperationStatusResponse getDefaultInstanceForType() {
+      return u1467085.feedbins.OperationStatusResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public u1467085.feedbins.ChatMessage build() {
-      u1467085.feedbins.ChatMessage result = buildPartial();
+    public u1467085.feedbins.OperationStatusResponse build() {
+      u1467085.feedbins.OperationStatusResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -386,9 +467,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public u1467085.feedbins.ChatMessage buildPartial() {
-      u1467085.feedbins.ChatMessage result = new u1467085.feedbins.ChatMessage(this);
-      result.from_ = from_;
+    public u1467085.feedbins.OperationStatusResponse buildPartial() {
+      u1467085.feedbins.OperationStatusResponse result = new u1467085.feedbins.OperationStatusResponse(this);
+      result.result_ = result_;
       result.message_ = message_;
       onBuilt();
       return result;
@@ -428,19 +509,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof u1467085.feedbins.ChatMessage) {
-        return mergeFrom((u1467085.feedbins.ChatMessage)other);
+      if (other instanceof u1467085.feedbins.OperationStatusResponse) {
+        return mergeFrom((u1467085.feedbins.OperationStatusResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(u1467085.feedbins.ChatMessage other) {
-      if (other == u1467085.feedbins.ChatMessage.getDefaultInstance()) return this;
-      if (!other.getFrom().isEmpty()) {
-        from_ = other.from_;
-        onChanged();
+    public Builder mergeFrom(u1467085.feedbins.OperationStatusResponse other) {
+      if (other == u1467085.feedbins.OperationStatusResponse.getDefaultInstance()) return this;
+      if (other.result_ != 0) {
+        setResultValue(other.getResultValue());
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
@@ -461,11 +541,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      u1467085.feedbins.ChatMessage parsedMessage = null;
+      u1467085.feedbins.OperationStatusResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (u1467085.feedbins.ChatMessage) e.getUnfinishedMessage();
+        parsedMessage = (u1467085.feedbins.OperationStatusResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -475,71 +555,47 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object from_ = "";
+    private int result_ = 0;
     /**
-     * <code>string from = 1;</code>
+     * <code>.feedbins.OperationStatusResponse.OperationStatus result = 1;</code>
      */
-    public java.lang.String getFrom() {
-      java.lang.Object ref = from_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        from_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public int getResultValue() {
+      return result_;
     }
     /**
-     * <code>string from = 1;</code>
+     * <code>.feedbins.OperationStatusResponse.OperationStatus result = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getFromBytes() {
-      java.lang.Object ref = from_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        from_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string from = 1;</code>
-     */
-    public Builder setFrom(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      from_ = value;
+    public Builder setResultValue(int value) {
+      result_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string from = 1;</code>
+     * <code>.feedbins.OperationStatusResponse.OperationStatus result = 1;</code>
      */
-    public Builder clearFrom() {
+    public u1467085.feedbins.OperationStatusResponse.OperationStatus getResult() {
+      @SuppressWarnings("deprecation")
+      u1467085.feedbins.OperationStatusResponse.OperationStatus result = u1467085.feedbins.OperationStatusResponse.OperationStatus.valueOf(result_);
+      return result == null ? u1467085.feedbins.OperationStatusResponse.OperationStatus.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.feedbins.OperationStatusResponse.OperationStatus result = 1;</code>
+     */
+    public Builder setResult(u1467085.feedbins.OperationStatusResponse.OperationStatus value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
       
-      from_ = getDefaultInstance().getFrom();
+      result_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
-     * <code>string from = 1;</code>
+     * <code>.feedbins.OperationStatusResponse.OperationStatus result = 1;</code>
      */
-    public Builder setFromBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public Builder clearResult() {
       
-      from_ = value;
+      result_ = 0;
       onChanged();
       return this;
     }
@@ -625,41 +681,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:feedbins.ChatMessage)
+    // @@protoc_insertion_point(builder_scope:feedbins.OperationStatusResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:feedbins.ChatMessage)
-  private static final u1467085.feedbins.ChatMessage DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:feedbins.OperationStatusResponse)
+  private static final u1467085.feedbins.OperationStatusResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new u1467085.feedbins.ChatMessage();
+    DEFAULT_INSTANCE = new u1467085.feedbins.OperationStatusResponse();
   }
 
-  public static u1467085.feedbins.ChatMessage getDefaultInstance() {
+  public static u1467085.feedbins.OperationStatusResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ChatMessage>
-      PARSER = new com.google.protobuf.AbstractParser<ChatMessage>() {
+  private static final com.google.protobuf.Parser<OperationStatusResponse>
+      PARSER = new com.google.protobuf.AbstractParser<OperationStatusResponse>() {
     @java.lang.Override
-    public ChatMessage parsePartialFrom(
+    public OperationStatusResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ChatMessage(input, extensionRegistry);
+      return new OperationStatusResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ChatMessage> parser() {
+  public static com.google.protobuf.Parser<OperationStatusResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ChatMessage> getParserForType() {
+  public com.google.protobuf.Parser<OperationStatusResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public u1467085.feedbins.ChatMessage getDefaultInstanceForType() {
+  public u1467085.feedbins.OperationStatusResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

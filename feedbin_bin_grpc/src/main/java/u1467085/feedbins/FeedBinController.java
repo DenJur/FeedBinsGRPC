@@ -15,15 +15,25 @@ public final class FeedBinController {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_feedbins_ChatMessage_descriptor;
+    internal_static_feedbins_OperationStatusResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_feedbins_ChatMessage_fieldAccessorTable;
+      internal_static_feedbins_OperationStatusResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_feedbins_ChatMessageFromServer_descriptor;
+    internal_static_feedbins_Stuff_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_feedbins_ChatMessageFromServer_fieldAccessorTable;
+      internal_static_feedbins_Stuff_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_feedbins_StuffAmount_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_feedbins_StuffAmount_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_feedbins_BinStatusUpdate_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_feedbins_BinStatusUpdate_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,13 +43,26 @@ public final class FeedBinController {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tbin.proto\022\010feedbins\",\n\013ChatMessage\022\014\n\004" +
-      "from\030\001 \001(\t\022\017\n\007message\030\002 \001(\t\"?\n\025ChatMessa" +
-      "geFromServer\022&\n\007message\030\001 \001(\0132\025.feedbins" +
-      ".ChatMessage2Q\n\013ChatService\022B\n\004chat\022\025.fe" +
-      "edbins.ChatMessage\032\037.feedbins.ChatMessag" +
-      "eFromServer(\0010\001B-\n\021u1467085.feedbinsB\021Fe" +
-      "edBinControllerP\001\242\002\002FBb\006proto3"
+      "\n\tbin.proto\022\010feedbins\032\033google/protobuf/e" +
+      "mpty.proto\"\227\001\n\027OperationStatusResponse\022A" +
+      "\n\006result\030\001 \001(\01621.feedbins.OperationStatu" +
+      "sResponse.OperationStatus\022\017\n\007message\030\002 \001" +
+      "(\t\"(\n\017OperationStatus\022\013\n\007SUCCESS\020\000\022\010\n\004FA" +
+      "IL\020\001\"\032\n\005Stuff\022\021\n\tstuffName\030\001 \001(\t\"\"\n\013Stuf" +
+      "fAmount\022\023\n\013stuffAmount\030\001 \001(\005\"X\n\017BinStatu" +
+      "sUpdate\022\036\n\005stuff\030\001 \001(\0132\017.feedbins.Stuff\022" +
+      "%\n\006amount\030\002 \001(\0132\025.feedbins.StuffAmount2\354" +
+      "\002\n\016FeedBinService\022I\n\022registerForUpdates\022" +
+      "\026.google.protobuf.Empty\032\031.feedbins.BinSt" +
+      "atusUpdate0\001\022E\n\010flushBin\022\026.google.protob" +
+      "uf.Empty\032!.feedbins.OperationStatusRespo" +
+      "nse\022?\n\ninspectBin\022\026.google.protobuf.Empt" +
+      "y\032\031.feedbins.BinStatusUpdate\022D\n\010addStuff" +
+      "\022\025.feedbins.StuffAmount\032!.feedbins.Opera" +
+      "tionStatusResponse\022A\n\013changeStuff\022\017.feed" +
+      "bins.Stuff\032!.feedbins.OperationStatusRes" +
+      "ponseB-\n\021u1467085.feedbinsB\021FeedBinContr" +
+      "ollerP\001\242\002\002FBb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -52,19 +75,33 @@ public final class FeedBinController {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.google.protobuf.EmptyProto.getDescriptor(),
         }, assigner);
-    internal_static_feedbins_ChatMessage_descriptor =
+    internal_static_feedbins_OperationStatusResponse_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_feedbins_ChatMessage_fieldAccessorTable = new
+    internal_static_feedbins_OperationStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_feedbins_ChatMessage_descriptor,
-        new java.lang.String[] { "From", "Message", });
-    internal_static_feedbins_ChatMessageFromServer_descriptor =
+        internal_static_feedbins_OperationStatusResponse_descriptor,
+        new java.lang.String[] { "Result", "Message", });
+    internal_static_feedbins_Stuff_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_feedbins_ChatMessageFromServer_fieldAccessorTable = new
+    internal_static_feedbins_Stuff_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_feedbins_ChatMessageFromServer_descriptor,
-        new java.lang.String[] { "Message", });
+        internal_static_feedbins_Stuff_descriptor,
+        new java.lang.String[] { "StuffName", });
+    internal_static_feedbins_StuffAmount_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_feedbins_StuffAmount_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_feedbins_StuffAmount_descriptor,
+        new java.lang.String[] { "StuffAmount", });
+    internal_static_feedbins_BinStatusUpdate_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_feedbins_BinStatusUpdate_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_feedbins_BinStatusUpdate_descriptor,
+        new java.lang.String[] { "Stuff", "Amount", });
+    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

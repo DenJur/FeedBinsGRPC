@@ -4,18 +4,18 @@
 package u1467085.feedbins;
 
 /**
- * Protobuf type {@code feedbins.ChatMessageFromServer}
+ * Protobuf type {@code feedbins.StuffAmount}
  */
-public  final class ChatMessageFromServer extends
+public  final class StuffAmount extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:feedbins.ChatMessageFromServer)
-    ChatMessageFromServerOrBuilder {
+    // @@protoc_insertion_point(message_implements:feedbins.StuffAmount)
+    StuffAmountOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ChatMessageFromServer.newBuilder() to construct.
-  private ChatMessageFromServer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use StuffAmount.newBuilder() to construct.
+  private StuffAmount(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ChatMessageFromServer() {
+  private StuffAmount() {
   }
 
   @java.lang.Override
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ChatMessageFromServer(
+  private StuffAmount(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -42,17 +42,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            u1467085.feedbins.ChatMessage.Builder subBuilder = null;
-            if (message_ != null) {
-              subBuilder = message_.toBuilder();
-            }
-            message_ = input.readMessage(u1467085.feedbins.ChatMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(message_);
-              message_ = subBuilder.buildPartial();
-            }
+          case 8: {
 
+            stuffAmount_ = input.readInt32();
             break;
           }
           default: {
@@ -76,36 +68,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessageFromServer_descriptor;
+    return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessageFromServer_fieldAccessorTable
+    return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            u1467085.feedbins.ChatMessageFromServer.class, u1467085.feedbins.ChatMessageFromServer.Builder.class);
+            u1467085.feedbins.StuffAmount.class, u1467085.feedbins.StuffAmount.Builder.class);
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 1;
-  private u1467085.feedbins.ChatMessage message_;
+  public static final int STUFFAMOUNT_FIELD_NUMBER = 1;
+  private int stuffAmount_;
   /**
-   * <code>.feedbins.ChatMessage message = 1;</code>
+   * <code>int32 stuffAmount = 1;</code>
    */
-  public boolean hasMessage() {
-    return message_ != null;
-  }
-  /**
-   * <code>.feedbins.ChatMessage message = 1;</code>
-   */
-  public u1467085.feedbins.ChatMessage getMessage() {
-    return message_ == null ? u1467085.feedbins.ChatMessage.getDefaultInstance() : message_;
-  }
-  /**
-   * <code>.feedbins.ChatMessage message = 1;</code>
-   */
-  public u1467085.feedbins.ChatMessageOrBuilder getMessageOrBuilder() {
-    return getMessage();
+  public int getStuffAmount() {
+    return stuffAmount_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -122,8 +102,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (message_ != null) {
-      output.writeMessage(1, getMessage());
+    if (stuffAmount_ != 0) {
+      output.writeInt32(1, stuffAmount_);
     }
     unknownFields.writeTo(output);
   }
@@ -134,9 +114,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (message_ != null) {
+    if (stuffAmount_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getMessage());
+        .computeInt32Size(1, stuffAmount_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -148,16 +128,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof u1467085.feedbins.ChatMessageFromServer)) {
+    if (!(obj instanceof u1467085.feedbins.StuffAmount)) {
       return super.equals(obj);
     }
-    u1467085.feedbins.ChatMessageFromServer other = (u1467085.feedbins.ChatMessageFromServer) obj;
+    u1467085.feedbins.StuffAmount other = (u1467085.feedbins.StuffAmount) obj;
 
-    if (hasMessage() != other.hasMessage()) return false;
-    if (hasMessage()) {
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-    }
+    if (getStuffAmount()
+        != other.getStuffAmount()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -169,78 +146,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasMessage()) {
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-    }
+    hash = (37 * hash) + STUFFAMOUNT_FIELD_NUMBER;
+    hash = (53 * hash) + getStuffAmount();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(byte[] data)
+  public static u1467085.feedbins.StuffAmount parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(java.io.InputStream input)
+  public static u1467085.feedbins.StuffAmount parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseDelimitedFrom(java.io.InputStream input)
+  public static u1467085.feedbins.StuffAmount parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseDelimitedFrom(
+  public static u1467085.feedbins.StuffAmount parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static u1467085.feedbins.ChatMessageFromServer parseFrom(
+  public static u1467085.feedbins.StuffAmount parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -253,7 +228,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(u1467085.feedbins.ChatMessageFromServer prototype) {
+  public static Builder newBuilder(u1467085.feedbins.StuffAmount prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -269,26 +244,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code feedbins.ChatMessageFromServer}
+   * Protobuf type {@code feedbins.StuffAmount}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:feedbins.ChatMessageFromServer)
-      u1467085.feedbins.ChatMessageFromServerOrBuilder {
+      // @@protoc_insertion_point(builder_implements:feedbins.StuffAmount)
+      u1467085.feedbins.StuffAmountOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessageFromServer_descriptor;
+      return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessageFromServer_fieldAccessorTable
+      return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              u1467085.feedbins.ChatMessageFromServer.class, u1467085.feedbins.ChatMessageFromServer.Builder.class);
+              u1467085.feedbins.StuffAmount.class, u1467085.feedbins.StuffAmount.Builder.class);
     }
 
-    // Construct using u1467085.feedbins.ChatMessageFromServer.newBuilder()
+    // Construct using u1467085.feedbins.StuffAmount.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -306,29 +281,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (messageBuilder_ == null) {
-        message_ = null;
-      } else {
-        message_ = null;
-        messageBuilder_ = null;
-      }
+      stuffAmount_ = 0;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_ChatMessageFromServer_descriptor;
+      return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_descriptor;
     }
 
     @java.lang.Override
-    public u1467085.feedbins.ChatMessageFromServer getDefaultInstanceForType() {
-      return u1467085.feedbins.ChatMessageFromServer.getDefaultInstance();
+    public u1467085.feedbins.StuffAmount getDefaultInstanceForType() {
+      return u1467085.feedbins.StuffAmount.getDefaultInstance();
     }
 
     @java.lang.Override
-    public u1467085.feedbins.ChatMessageFromServer build() {
-      u1467085.feedbins.ChatMessageFromServer result = buildPartial();
+    public u1467085.feedbins.StuffAmount build() {
+      u1467085.feedbins.StuffAmount result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -336,13 +307,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public u1467085.feedbins.ChatMessageFromServer buildPartial() {
-      u1467085.feedbins.ChatMessageFromServer result = new u1467085.feedbins.ChatMessageFromServer(this);
-      if (messageBuilder_ == null) {
-        result.message_ = message_;
-      } else {
-        result.message_ = messageBuilder_.build();
-      }
+    public u1467085.feedbins.StuffAmount buildPartial() {
+      u1467085.feedbins.StuffAmount result = new u1467085.feedbins.StuffAmount(this);
+      result.stuffAmount_ = stuffAmount_;
       onBuilt();
       return result;
     }
@@ -381,18 +348,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof u1467085.feedbins.ChatMessageFromServer) {
-        return mergeFrom((u1467085.feedbins.ChatMessageFromServer)other);
+      if (other instanceof u1467085.feedbins.StuffAmount) {
+        return mergeFrom((u1467085.feedbins.StuffAmount)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(u1467085.feedbins.ChatMessageFromServer other) {
-      if (other == u1467085.feedbins.ChatMessageFromServer.getDefaultInstance()) return this;
-      if (other.hasMessage()) {
-        mergeMessage(other.getMessage());
+    public Builder mergeFrom(u1467085.feedbins.StuffAmount other) {
+      if (other == u1467085.feedbins.StuffAmount.getDefaultInstance()) return this;
+      if (other.getStuffAmount() != 0) {
+        setStuffAmount(other.getStuffAmount());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -409,11 +376,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      u1467085.feedbins.ChatMessageFromServer parsedMessage = null;
+      u1467085.feedbins.StuffAmount parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (u1467085.feedbins.ChatMessageFromServer) e.getUnfinishedMessage();
+        parsedMessage = (u1467085.feedbins.StuffAmount) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -423,121 +390,30 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private u1467085.feedbins.ChatMessage message_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        u1467085.feedbins.ChatMessage, u1467085.feedbins.ChatMessage.Builder, u1467085.feedbins.ChatMessageOrBuilder> messageBuilder_;
+    private int stuffAmount_ ;
     /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
+     * <code>int32 stuffAmount = 1;</code>
      */
-    public boolean hasMessage() {
-      return messageBuilder_ != null || message_ != null;
+    public int getStuffAmount() {
+      return stuffAmount_;
     }
     /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
+     * <code>int32 stuffAmount = 1;</code>
      */
-    public u1467085.feedbins.ChatMessage getMessage() {
-      if (messageBuilder_ == null) {
-        return message_ == null ? u1467085.feedbins.ChatMessage.getDefaultInstance() : message_;
-      } else {
-        return messageBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
-     */
-    public Builder setMessage(u1467085.feedbins.ChatMessage value) {
-      if (messageBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        message_ = value;
-        onChanged();
-      } else {
-        messageBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
-     */
-    public Builder setMessage(
-        u1467085.feedbins.ChatMessage.Builder builderForValue) {
-      if (messageBuilder_ == null) {
-        message_ = builderForValue.build();
-        onChanged();
-      } else {
-        messageBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
-     */
-    public Builder mergeMessage(u1467085.feedbins.ChatMessage value) {
-      if (messageBuilder_ == null) {
-        if (message_ != null) {
-          message_ =
-            u1467085.feedbins.ChatMessage.newBuilder(message_).mergeFrom(value).buildPartial();
-        } else {
-          message_ = value;
-        }
-        onChanged();
-      } else {
-        messageBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
-     */
-    public Builder clearMessage() {
-      if (messageBuilder_ == null) {
-        message_ = null;
-        onChanged();
-      } else {
-        message_ = null;
-        messageBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
-     */
-    public u1467085.feedbins.ChatMessage.Builder getMessageBuilder() {
+    public Builder setStuffAmount(int value) {
       
+      stuffAmount_ = value;
       onChanged();
-      return getMessageFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
+     * <code>int32 stuffAmount = 1;</code>
      */
-    public u1467085.feedbins.ChatMessageOrBuilder getMessageOrBuilder() {
-      if (messageBuilder_ != null) {
-        return messageBuilder_.getMessageOrBuilder();
-      } else {
-        return message_ == null ?
-            u1467085.feedbins.ChatMessage.getDefaultInstance() : message_;
-      }
-    }
-    /**
-     * <code>.feedbins.ChatMessage message = 1;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        u1467085.feedbins.ChatMessage, u1467085.feedbins.ChatMessage.Builder, u1467085.feedbins.ChatMessageOrBuilder> 
-        getMessageFieldBuilder() {
-      if (messageBuilder_ == null) {
-        messageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            u1467085.feedbins.ChatMessage, u1467085.feedbins.ChatMessage.Builder, u1467085.feedbins.ChatMessageOrBuilder>(
-                getMessage(),
-                getParentForChildren(),
-                isClean());
-        message_ = null;
-      }
-      return messageBuilder_;
+    public Builder clearStuffAmount() {
+      
+      stuffAmount_ = 0;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -552,41 +428,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:feedbins.ChatMessageFromServer)
+    // @@protoc_insertion_point(builder_scope:feedbins.StuffAmount)
   }
 
-  // @@protoc_insertion_point(class_scope:feedbins.ChatMessageFromServer)
-  private static final u1467085.feedbins.ChatMessageFromServer DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:feedbins.StuffAmount)
+  private static final u1467085.feedbins.StuffAmount DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new u1467085.feedbins.ChatMessageFromServer();
+    DEFAULT_INSTANCE = new u1467085.feedbins.StuffAmount();
   }
 
-  public static u1467085.feedbins.ChatMessageFromServer getDefaultInstance() {
+  public static u1467085.feedbins.StuffAmount getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ChatMessageFromServer>
-      PARSER = new com.google.protobuf.AbstractParser<ChatMessageFromServer>() {
+  private static final com.google.protobuf.Parser<StuffAmount>
+      PARSER = new com.google.protobuf.AbstractParser<StuffAmount>() {
     @java.lang.Override
-    public ChatMessageFromServer parsePartialFrom(
+    public StuffAmount parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ChatMessageFromServer(input, extensionRegistry);
+      return new StuffAmount(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ChatMessageFromServer> parser() {
+  public static com.google.protobuf.Parser<StuffAmount> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ChatMessageFromServer> getParserForType() {
+  public com.google.protobuf.Parser<StuffAmount> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public u1467085.feedbins.ChatMessageFromServer getDefaultInstanceForType() {
+  public u1467085.feedbins.StuffAmount getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
