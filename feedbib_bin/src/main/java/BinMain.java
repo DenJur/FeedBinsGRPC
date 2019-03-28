@@ -3,7 +3,7 @@ import io.grpc.ServerBuilder;
 
 import java.io.IOException;
 
-public class Main {
+public class BinMain {
     public static void main(String[] args) {
         Server server = ServerBuilder.forPort(9090).addService(new FeedBinServiceImpl(new Bin())).build();
         try {

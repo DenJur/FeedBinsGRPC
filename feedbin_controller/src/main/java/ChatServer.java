@@ -5,9 +5,5 @@ import java.io.IOException;
 
 public class ChatServer {
     public static void main(String[] args) throws InterruptedException, IOException {
-        Server server = ServerBuilder.forPort(9090).addService(new ChatServiceImpl()).build();
-
-        server.start();
-        server.awaitTermination();
     }
 }
