@@ -11,9 +11,11 @@ public class CLI implements Runnable {
     @CommandLine.Option(names = { "-p", "--port", "-port"}, required = true, description = "Port that the bin will start the service on")
     private int port;
 
+    @CommandLine.Option(names = { "-s", "--size", "-size"}, defaultValue = "40", description = "Size of the bin in cubic liters")
+    private int binSize;
 
     public void run() {
-        Server server = ServerBuilder.forPort(port).addService(new FeedBinServiceImpl(new Bin())).build();
+        Server server = ServerBuilder.forPort(port).addService(new FeedBinServiceImpl(new Bin(binSize))).build();
         try {
             server.start();
             server.awaitTermination();
