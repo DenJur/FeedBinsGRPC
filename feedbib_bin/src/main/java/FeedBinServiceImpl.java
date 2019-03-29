@@ -27,9 +27,10 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
 
     @Override
     public synchronized void flushBin(Empty request, StreamObserver<OperationStatusResponse> responseObserver) {
-        bin.flush();
-        notifyObservers();
-        responseObserver.onCompleted();
+            bin.flush();
+            notifyObservers();
+            responseObserver.onNext(OperationStatusResponse.newBuilder().setResult(OperationStatusResponse.OperationStatus.SUCCESS).build());
+            responseObserver.onCompleted();
    }
 
     @Override
@@ -42,10 +43,10 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
     public synchronized void addStuff(StuffAmount request, StreamObserver<OperationStatusResponse> responseObserver) {
         try{
             bin.addAmount(request.getStuffAmount());
+            notifyObservers();
             responseObserver.onNext(OperationStatusResponse.newBuilder()
                     .setResult(OperationStatusResponse.OperationStatus.SUCCESS)
                     .build());
-            notifyObservers();
         } catch (BinUnderflow binUnderflow) {
             responseObserver.onNext(OperationStatusResponse.newBuilder()
                     .setResult(OperationStatusResponse.OperationStatus.FAIL)
@@ -56,19 +57,19 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
                     .setResult(OperationStatusResponse.OperationStatus.FAIL)
                     .setMessage("Specified amount is more than the bin can hold.")
                     .build());
-        } finally {
+        }  finally {
             responseObserver.onCompleted();
         }
     }
 
     @Override
     public synchronized void changeStuff(Stuff request, StreamObserver<OperationStatusResponse> responseObserver) {
-        bin.changeStuffName(request.getStuffName());
-        responseObserver.onNext(OperationStatusResponse.newBuilder()
-                .setResult(OperationStatusResponse.OperationStatus.SUCCESS)
-                .build());
-        notifyObservers();
-        responseObserver.onCompleted();
+            bin.changeStuffName(request.getStuffName());
+            notifyObservers();
+            responseObserver.onNext(OperationStatusResponse.newBuilder()
+                    .setResult(OperationStatusResponse.OperationStatus.SUCCESS)
+                    .build());
+            responseObserver.onCompleted();
     }
 
     private BinStatusUpdate buildNewStatus() {

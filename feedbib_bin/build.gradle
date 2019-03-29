@@ -19,4 +19,5 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation "uk.ac.hud.u1467085:feedbin_bin_grpc:1.0"
     implementation "io.grpc:grpc-all:1.19.0"
+    implementation "info.picocli:picocli:3.9.5"
 }

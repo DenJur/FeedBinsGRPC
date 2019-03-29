@@ -14,7 +14,7 @@ public class Bin {
         return stuffAmount;
     }
 
-    public void flush(){
+    public void flush() {
         stuffAmount=0;
     }
 
@@ -25,7 +25,7 @@ public class Bin {
         return true;
     }
 
-    public void changeStuffName(String newName){
+    public void changeStuffName(String newName) {
         flush();
         stuffName=newName;
     }
