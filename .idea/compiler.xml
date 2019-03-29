@@ -12,12 +12,14 @@
       <module name="feedbin_controller.test" target="1.8" />
       <module name="feedbin_controller_grpc.main" target="1.8" />
       <module name="feedbin_controller_grpc.test" target="1.8" />
-      <module name="uk.ac.hud.u1467085.feedbib_bin.main" target="1.8" />
-      <module name="uk.ac.hud.u1467085.feedbib_bin.test" target="1.8" />
+      <module name="uk.ac.hud.u1467085.feedbin_bin.main" target="1.8" />
+      <module name="uk.ac.hud.u1467085.feedbin_bin.test" target="1.8" />
       <module name="uk.ac.hud.u1467085.feedbin_bin_grpc.main" target="1.8" />
       <module name="uk.ac.hud.u1467085.feedbin_bin_grpc.test" target="1.8" />
       <module name="uk.ac.hud.u1467085.feedbin_controller.main" target="1.8" />
       <module name="uk.ac.hud.u1467085.feedbin_controller.test" target="1.8" />
+      <module name="uk.ac.hud.u1467085.feedbin_controller_grpc.main" target="1.8" />
+      <module name="uk.ac.hud.u1467085.feedbin_controller_grpc.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

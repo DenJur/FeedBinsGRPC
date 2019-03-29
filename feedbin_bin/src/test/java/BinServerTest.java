@@ -4,13 +4,14 @@ import exceptions.BinOverflow;
 import exceptions.BinUnderflow;
 import io.grpc.Context;
 import io.grpc.ManagedChannel;
+import io.grpc.Server;
 import io.grpc.Status;
 import io.grpc.inprocess.InProcessChannelBuilder;
 import io.grpc.inprocess.InProcessServerBuilder;
 import io.grpc.stub.StreamObserver;
-import io.grpc.testing.GrpcCleanupRule;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import u1467085.feedbins.*;
 
 import java.io.IOException;
@@ -21,12 +22,11 @@ import java.util.concurrent.TimeoutException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BinServerTest {
-    @Rule
-    public final GrpcCleanupRule grpcCleanup = new GrpcCleanupRule();
 
     private FeedBinServiceGrpc.FeedBinServiceFutureStub serviceStub;
     private Bin bin;
     private ManagedChannel channel;
+    private Server server;
 
     /**
      * Creates default server-client test configuration.
@@ -35,15 +35,22 @@ public class BinServerTest {
      * @throws BinUnderflow
      * @throws BinOverflow
      */
-    private void TestSetup() throws IOException, BinUnderflow, BinOverflow {
+    @BeforeEach
+    public void TestSetup() throws IOException, BinUnderflow, BinOverflow {
         String serverName = InProcessServerBuilder.generateName();
         bin = new Bin(40);
         bin.changeStuffName("Product");
         bin.addAmount(20);
-        grpcCleanup.register(InProcessServerBuilder.forName(serverName)
-                .addService(new FeedBinServiceImpl(bin)).build().start());
-        channel = grpcCleanup.register(InProcessChannelBuilder.forName(serverName).directExecutor().build());
+        server = InProcessServerBuilder.forName(serverName)
+                .addService(new FeedBinServiceImpl(bin)).build().start();
+        channel = InProcessChannelBuilder.forName(serverName).directExecutor().build();
         serviceStub = FeedBinServiceGrpc.newFutureStub(channel);
+    }
+
+    @AfterEach
+    public void TestTeardown() throws InterruptedException {
+        channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
+        server.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
     }
 
     /**
