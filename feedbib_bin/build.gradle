@@ -8,6 +8,8 @@ apply plugin: 'idea'
 group 'uk.ac.hud.u1467085'
 version '1.0'
 
+def mainPath="BinMain"
+
 sourceCompatibility = 1.8
 
 repositories {
@@ -15,9 +17,23 @@ repositories {
     mavenCentral()
 }
 
+test {
+    useJUnitPlatform()
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.0-M1"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.5.0-M1"
     implementation "uk.ac.hud.u1467085:feedbin_bin_grpc:1.0"
     implementation "io.grpc:grpc-all:1.19.0"
     implementation "info.picocli:picocli:3.9.5"
+}
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': mainPath
+    }
+    baseName = 'feed-bin'
+    from { configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }

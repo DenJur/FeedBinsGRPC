@@ -15,12 +15,15 @@ public class CLI implements Runnable {
     private int binSize;
 
     public void run() {
+        //Create instance of gRPC server
         Server server = ServerBuilder.forPort(port).addService(new FeedBinServiceImpl(new Bin(binSize))).build();
         try {
+            //Start the server and then either await server termination of app termination
             server.start();
+            System.out.println("Server started at port "+port);
             server.awaitTermination();
         } catch (InterruptedException | IOException e) {
-            System.out.println("Error creating bin server.");
+            System.out.println("Error running bin server.");
             e.printStackTrace();
         }
     }
