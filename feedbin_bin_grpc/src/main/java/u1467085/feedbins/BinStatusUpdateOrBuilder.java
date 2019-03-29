@@ -32,4 +32,9 @@ public interface BinStatusUpdateOrBuilder extends
    * <code>.feedbins.StuffAmount amount = 2;</code>
    */
   u1467085.feedbins.StuffAmountOrBuilder getAmountOrBuilder();
+
+  /**
+   * <code>int32 maxAmount = 3;</code>
+   */
+  int getMaxAmount();
 }

@@ -68,13 +68,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_descriptor;
+    return u1467085.feedbins.FeedBin.internal_static_feedbins_StuffAmount_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_fieldAccessorTable
+    return u1467085.feedbins.FeedBin.internal_static_feedbins_StuffAmount_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             u1467085.feedbins.StuffAmount.class, u1467085.feedbins.StuffAmount.Builder.class);
   }
@@ -252,13 +252,13 @@ private static final long serialVersionUID = 0L;
       u1467085.feedbins.StuffAmountOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_descriptor;
+      return u1467085.feedbins.FeedBin.internal_static_feedbins_StuffAmount_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_fieldAccessorTable
+      return u1467085.feedbins.FeedBin.internal_static_feedbins_StuffAmount_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               u1467085.feedbins.StuffAmount.class, u1467085.feedbins.StuffAmount.Builder.class);
     }
@@ -289,7 +289,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return u1467085.feedbins.FeedBinController.internal_static_feedbins_StuffAmount_descriptor;
+      return u1467085.feedbins.FeedBin.internal_static_feedbins_StuffAmount_descriptor;
     }
 
     @java.lang.Override

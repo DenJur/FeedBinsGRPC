@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "u1467085.feedbincontroller";
+option java_outer_classname = "FeedBinController";
+option objc_class_prefix = "FB";
+
+import "google/protobuf/empty.proto";
+
+package feedbins;
+
+message OperationStatusResponse {
+    enum OperationStatus {
+        SUCCESS = 0;
+        FAIL = 1;
+    }
+    OperationStatus result = 1;
+    string message = 2;
+}
+
+message BinId {
+    string address = 1;
+    int32 port = 2;
+}
+
+message Stuff {
+    string stuffName = 1;
+}
+
+message ProductionLine {
+    string name = 1;
+}
+
+message BinStatusUpdate {
+    BinRecord record = 1;
+    Stuff stuff = 2;
+    int32 amount = 3;
+    int32 maxAmount = 4;
+}
+
+message BinRecord {
+    ProductionLine line = 1;
+    BinId binId = 2;
+}
+
+message FillBin {
+    BinId id = 1;
+    int32 amount = 2;
+}
+
+message ChangeBinStuff {
+    BinId id = 1;
+    Stuff stuff = 2;
+}
+
+service FeedBinControllerService {
+    rpc registerForUpdates (google.protobuf.Empty) returns (stream BinStatusUpdate);
+    rpc addBin (BinRecord) returns (OperationStatusResponse);
+    rpc createProductionLine (ProductionLine) returns (OperationStatusResponse);
+    rpc flushBin (BinId) returns (OperationStatusResponse);
+    rpc inspectBin (BinId) returns (BinStatusUpdate);
+    rpc addStuff (FillBin) returns (OperationStatusResponse);
+    rpc changeStuff (ChangeBinStuff) returns (OperationStatusResponse);
+}

@@ -124,6 +124,7 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
         return BinStatusUpdate.newBuilder()
                 .setAmount(StuffAmount.newBuilder().setStuffAmount(bin.getStuffAmount()).build())
                 .setStuff(Stuff.newBuilder().setStuffName(bin.getStuffName()).build())
+                .setMaxAmount(bin.MAX_AMOUNT)
                 .build();
     }
 

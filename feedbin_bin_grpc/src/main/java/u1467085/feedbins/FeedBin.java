@@ -3,8 +3,8 @@
 
 package u1467085.feedbins;
 
-public final class FeedBinController {
-  private FeedBinController() {}
+public final class FeedBin {
+  private FeedBin() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -49,20 +49,20 @@ public final class FeedBinController {
       "sResponse.OperationStatus\022\017\n\007message\030\002 \001" +
       "(\t\"(\n\017OperationStatus\022\013\n\007SUCCESS\020\000\022\010\n\004FA" +
       "IL\020\001\"\032\n\005Stuff\022\021\n\tstuffName\030\001 \001(\t\"\"\n\013Stuf" +
-      "fAmount\022\023\n\013stuffAmount\030\001 \001(\005\"X\n\017BinStatu" +
+      "fAmount\022\023\n\013stuffAmount\030\001 \001(\005\"k\n\017BinStatu" +
       "sUpdate\022\036\n\005stuff\030\001 \001(\0132\017.feedbins.Stuff\022" +
-      "%\n\006amount\030\002 \001(\0132\025.feedbins.StuffAmount2\366" +
-      "\002\n\016FeedBinService\022K\n\022registerForUpdates\022" +
-      "\026.google.protobuf.Empty\032\031.feedbins.BinSt" +
-      "atusUpdate\"\0000\001\022G\n\010flushBin\022\026.google.prot" +
-      "obuf.Empty\032!.feedbins.OperationStatusRes" +
-      "ponse\"\000\022A\n\ninspectBin\022\026.google.protobuf." +
-      "Empty\032\031.feedbins.BinStatusUpdate\"\000\022F\n\010ad" +
-      "dStuff\022\025.feedbins.StuffAmount\032!.feedbins" +
-      ".OperationStatusResponse\"\000\022C\n\013changeStuf" +
-      "f\022\017.feedbins.Stuff\032!.feedbins.OperationS" +
-      "tatusResponse\"\000B-\n\021u1467085.feedbinsB\021Fe" +
-      "edBinControllerP\001\242\002\002FBb\006proto3"
+      "%\n\006amount\030\002 \001(\0132\025.feedbins.StuffAmount\022\021" +
+      "\n\tmaxAmount\030\003 \001(\0052\354\002\n\016FeedBinService\022I\n\022" +
+      "registerForUpdates\022\026.google.protobuf.Emp" +
+      "ty\032\031.feedbins.BinStatusUpdate0\001\022E\n\010flush" +
+      "Bin\022\026.google.protobuf.Empty\032!.feedbins.O" +
+      "perationStatusResponse\022?\n\ninspectBin\022\026.g" +
+      "oogle.protobuf.Empty\032\031.feedbins.BinStatu" +
+      "sUpdate\022D\n\010addStuff\022\025.feedbins.StuffAmou" +
+      "nt\032!.feedbins.OperationStatusResponse\022A\n" +
+      "\013changeStuff\022\017.feedbins.Stuff\032!.feedbins" +
+      ".OperationStatusResponseB#\n\021u1467085.fee" +
+      "dbinsB\007FeedBinP\001\242\002\002FBb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -100,7 +100,7 @@ public final class FeedBinController {
     internal_static_feedbins_BinStatusUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_feedbins_BinStatusUpdate_descriptor,
-        new java.lang.String[] { "Stuff", "Amount", });
+        new java.lang.String[] { "Stuff", "Amount", "MaxAmount", });
     com.google.protobuf.EmptyProto.getDescriptor();
   }
 

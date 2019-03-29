@@ -520,7 +520,7 @@ public final class FeedBinServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return u1467085.feedbins.FeedBinController.getDescriptor();
+      return u1467085.feedbins.FeedBin.getDescriptor();
     }
 
     @java.lang.Override

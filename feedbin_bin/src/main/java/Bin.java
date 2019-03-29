@@ -2,7 +2,7 @@ import exceptions.BinOverflow;
 import exceptions.BinUnderflow;
 
 public class Bin {
-    private final int MAX_AMOUNT;
+    public final int MAX_AMOUNT;
     private String stuffName="EMPTY";
     private int stuffAmount=0;
 

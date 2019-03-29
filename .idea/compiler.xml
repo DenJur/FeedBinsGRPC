@@ -2,12 +2,16 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="feedbib_bin.main" target="1.8" />
-      <module name="feedbib_bin.test" target="1.8" />
+      <module name="feed_bincontroller_grpc.main" target="1.8" />
+      <module name="feed_bincontroller_grpc.test" target="1.8" />
+      <module name="feedbin_bin.main" target="1.8" />
+      <module name="feedbin_bin.test" target="1.8" />
       <module name="feedbin_bin_grpc.main" target="1.8" />
       <module name="feedbin_bin_grpc.test" target="1.8" />
       <module name="feedbin_controller.main" target="1.8" />
       <module name="feedbin_controller.test" target="1.8" />
+      <module name="feedbin_controller_grpc.main" target="1.8" />
+      <module name="feedbin_controller_grpc.test" target="1.8" />
       <module name="uk.ac.hud.u1467085.feedbib_bin.main" target="1.8" />
       <module name="uk.ac.hud.u1467085.feedbib_bin.test" target="1.8" />
       <module name="uk.ac.hud.u1467085.feedbin_bin_grpc.main" target="1.8" />

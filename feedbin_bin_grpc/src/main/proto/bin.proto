@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "u1467085.feedbins";
-option java_outer_classname = "FeedBinController";
+option java_outer_classname = "FeedBin";
 option objc_class_prefix = "FB";
 
 import "google/protobuf/empty.proto";
@@ -11,30 +11,31 @@ package feedbins;
 
 message OperationStatusResponse {
     enum OperationStatus {
-        SUCCESS =0;
-        FAIL =1;
+        SUCCESS = 0;
+        FAIL = 1;
     }
-    OperationStatus result=1;
-    string message=2;
+    OperationStatus result = 1;
+    string message = 2;
 }
 
 message Stuff {
-    string stuffName=1;
+    string stuffName = 1;
 }
 
 message StuffAmount {
-    int32 stuffAmount=1;
+    int32 stuffAmount = 1;
 }
 
 message BinStatusUpdate {
     Stuff stuff = 1;
-    StuffAmount amount=2;
+    StuffAmount amount = 2;
+    int32 maxAmount = 3;
 }
 
 service FeedBinService {
-    rpc registerForUpdates (google.protobuf.Empty) returns (stream BinStatusUpdate) {}
-    rpc flushBin(google.protobuf.Empty) returns (OperationStatusResponse) {}
-    rpc inspectBin(google.protobuf.Empty) returns (BinStatusUpdate) {}
-    rpc addStuff(StuffAmount) returns (OperationStatusResponse) {}
-    rpc changeStuff(Stuff) returns (OperationStatusResponse) {}
+    rpc registerForUpdates (google.protobuf.Empty) returns (stream BinStatusUpdate);
+    rpc flushBin (google.protobuf.Empty) returns (OperationStatusResponse);
+    rpc inspectBin (google.protobuf.Empty) returns (BinStatusUpdate);
+    rpc addStuff (StuffAmount) returns (OperationStatusResponse);
+    rpc changeStuff (Stuff) returns (OperationStatusResponse);
 }
