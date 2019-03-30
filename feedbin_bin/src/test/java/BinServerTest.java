@@ -1,7 +1,9 @@
+import bin.Bin;
+import bin.FeedBinServiceImpl;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.protobuf.Empty;
-import exceptions.BinOverflow;
-import exceptions.BinUnderflow;
+import bin.exceptions.BinOverflow;
+import bin.exceptions.BinUnderflow;
 import io.grpc.Context;
 import io.grpc.ManagedChannel;
 import io.grpc.Server;
@@ -66,8 +68,8 @@ public class BinServerTest {
         ListenableFuture<BinStatusUpdate> future = serviceStub.inspectBin(Empty.newBuilder().build());
         try {
             BinStatusUpdate result = future.get(1, TimeUnit.SECONDS);
-            assertEquals(20, result.getAmount().getStuffAmount(), "Bin inspection return wrong stuff amount");
-            assertEquals("Product", result.getStuff().getStuffName(), "Bin inspection return wrong stuff name");
+            assertEquals(20, result.getAmount().getStuffAmount(), "bin.Bin inspection return wrong stuff amount");
+            assertEquals("Product", result.getStuff().getStuffName(), "bin.Bin inspection return wrong stuff name");
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             fail(e);
         }
@@ -89,12 +91,12 @@ public class BinServerTest {
 
             //compare to information from inspect
             BinStatusUpdate result = serviceStub.inspectBin(Empty.newBuilder().build()).get(1, TimeUnit.SECONDS);
-            assertEquals(0, result.getAmount().getStuffAmount(), "Bin inspection return wrong stuff amount");
-            assertEquals("Product", result.getStuff().getStuffName(), "Bin inspection return wrong stuff name");
+            assertEquals(0, result.getAmount().getStuffAmount(), "bin.Bin inspection return wrong stuff amount");
+            assertEquals("Product", result.getStuff().getStuffName(), "bin.Bin inspection return wrong stuff name");
 
             //compare to information from bin object
-            assertEquals(0, bin.getStuffAmount(), "Bin getter return wrong stuff amount");
-            assertEquals("Product", bin.getStuffName(), "Bin getter return wrong stuff name");
+            assertEquals(0, bin.getStuffAmount(), "bin.Bin getter return wrong stuff amount");
+            assertEquals("Product", bin.getStuffName(), "bin.Bin getter return wrong stuff name");
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             fail(e);
         }
@@ -115,11 +117,11 @@ public class BinServerTest {
             assertEquals(OperationStatusResponse.OperationStatus.SUCCESS, addResult.getResult(), "Add did not return success");
 
             BinStatusUpdate result = serviceStub.inspectBin(Empty.newBuilder().build()).get(1, TimeUnit.SECONDS);
-            assertEquals(30, result.getAmount().getStuffAmount(), "Bin inspection return wrong stuff amount");
-            assertEquals("Product", result.getStuff().getStuffName(), "Bin inspection return wrong stuff name");
+            assertEquals(30, result.getAmount().getStuffAmount(), "bin.Bin inspection return wrong stuff amount");
+            assertEquals("Product", result.getStuff().getStuffName(), "bin.Bin inspection return wrong stuff name");
 
-            assertEquals(30, bin.getStuffAmount(), "Bin getter return wrong stuff amount");
-            assertEquals("Product", bin.getStuffName(), "Bin getter return wrong stuff name");
+            assertEquals(30, bin.getStuffAmount(), "bin.Bin getter return wrong stuff amount");
+            assertEquals("Product", bin.getStuffName(), "bin.Bin getter return wrong stuff name");
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             fail(e);
         }
@@ -140,11 +142,11 @@ public class BinServerTest {
             assertEquals(OperationStatusResponse.OperationStatus.FAIL, addResult.getResult(), "Flush did not return fail");
 
             BinStatusUpdate result = serviceStub.inspectBin(Empty.newBuilder().build()).get(1, TimeUnit.SECONDS);
-            assertEquals(20, result.getAmount().getStuffAmount(), "Bin inspection return wrong stuff amount");
-            assertEquals("Product", result.getStuff().getStuffName(), "Bin inspection return wrong stuff name");
+            assertEquals(20, result.getAmount().getStuffAmount(), "bin.Bin inspection return wrong stuff amount");
+            assertEquals("Product", result.getStuff().getStuffName(), "bin.Bin inspection return wrong stuff name");
 
-            assertEquals(20, bin.getStuffAmount(), "Bin getter return wrong stuff amount");
-            assertEquals("Product", bin.getStuffName(), "Bin getter return wrong stuff name");
+            assertEquals(20, bin.getStuffAmount(), "bin.Bin getter return wrong stuff amount");
+            assertEquals("Product", bin.getStuffName(), "bin.Bin getter return wrong stuff name");
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             fail(e);
         }
@@ -165,11 +167,11 @@ public class BinServerTest {
             assertEquals(OperationStatusResponse.OperationStatus.SUCCESS, addResult.getResult(), "Remove did not return success");
 
             BinStatusUpdate result = serviceStub.inspectBin(Empty.newBuilder().build()).get(1, TimeUnit.SECONDS);
-            assertEquals(10, result.getAmount().getStuffAmount(), "Bin inspection return wrong stuff amount");
-            assertEquals("Product", result.getStuff().getStuffName(), "Bin inspection return wrong stuff name");
+            assertEquals(10, result.getAmount().getStuffAmount(), "bin.Bin inspection return wrong stuff amount");
+            assertEquals("Product", result.getStuff().getStuffName(), "bin.Bin inspection return wrong stuff name");
 
-            assertEquals(10, bin.getStuffAmount(), "Bin getter return wrong stuff amount");
-            assertEquals("Product", bin.getStuffName(), "Bin getter return wrong stuff name");
+            assertEquals(10, bin.getStuffAmount(), "bin.Bin getter return wrong stuff amount");
+            assertEquals("Product", bin.getStuffName(), "bin.Bin getter return wrong stuff name");
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             fail(e);
         }
@@ -190,11 +192,11 @@ public class BinServerTest {
             assertEquals(OperationStatusResponse.OperationStatus.FAIL, addResult.getResult(), "Flush did not return fail");
 
             BinStatusUpdate result = serviceStub.inspectBin(Empty.newBuilder().build()).get(1, TimeUnit.SECONDS);
-            assertEquals(20, result.getAmount().getStuffAmount(), "Bin inspection return wrong stuff amount");
-            assertEquals("Product", result.getStuff().getStuffName(), "Bin inspection return wrong stuff name");
+            assertEquals(20, result.getAmount().getStuffAmount(), "bin.Bin inspection return wrong stuff amount");
+            assertEquals("Product", result.getStuff().getStuffName(), "bin.Bin inspection return wrong stuff name");
 
-            assertEquals(20, bin.getStuffAmount(), "Bin getter return wrong stuff amount");
-            assertEquals("Product", bin.getStuffName(), "Bin getter return wrong stuff name");
+            assertEquals(20, bin.getStuffAmount(), "bin.Bin getter return wrong stuff amount");
+            assertEquals("Product", bin.getStuffName(), "bin.Bin getter return wrong stuff name");
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             fail(e);
         }
@@ -215,11 +217,11 @@ public class BinServerTest {
             assertEquals(OperationStatusResponse.OperationStatus.SUCCESS, addResult.getResult(), "Rename did not return success");
 
             BinStatusUpdate result = serviceStub.inspectBin(Empty.newBuilder().build()).get(1, TimeUnit.SECONDS);
-            assertEquals(0, result.getAmount().getStuffAmount(), "Bin inspection return wrong stuff amount");
-            assertEquals("NewProduct", result.getStuff().getStuffName(), "Bin inspection return wrong stuff name");
+            assertEquals(0, result.getAmount().getStuffAmount(), "bin.Bin inspection return wrong stuff amount");
+            assertEquals("NewProduct", result.getStuff().getStuffName(), "bin.Bin inspection return wrong stuff name");
 
-            assertEquals(0, bin.getStuffAmount(), "Bin getter return wrong stuff amount");
-            assertEquals("NewProduct", bin.getStuffName(), "Bin getter return wrong stuff name");
+            assertEquals(0, bin.getStuffAmount(), "bin.Bin getter return wrong stuff amount");
+            assertEquals("NewProduct", bin.getStuffName(), "bin.Bin getter return wrong stuff name");
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             fail(e);
         }

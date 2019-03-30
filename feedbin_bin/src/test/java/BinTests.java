@@ -1,5 +1,6 @@
-import exceptions.BinOverflow;
-import exceptions.BinUnderflow;
+import bin.Bin;
+import bin.exceptions.BinOverflow;
+import bin.exceptions.BinUnderflow;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -60,7 +61,7 @@ public class BinTests {
 
             bin.flush();
             amount = bin.getStuffAmount();
-            assertEquals(0, amount, "Bin was not empty after flushing");
+            assertEquals(0, amount, "bin.Bin was not empty after flushing");
         } catch (NoSuchFieldException | IllegalAccessException e) {
             fail(e);
         }
@@ -76,7 +77,7 @@ public class BinTests {
 
             bin.addAmount(30);
             amount = bin.getStuffAmount();
-            assertEquals(40, amount, "Bin was not filled up to the limit");
+            assertEquals(40, amount, "bin.Bin was not filled up to the limit");
 
             try {
                 bin.addAmount(1);
@@ -102,7 +103,7 @@ public class BinTests {
 
             bin.addAmount(-30);
             amount = bin.getStuffAmount();
-            assertEquals(0, amount, "Bin was not emptied to the limit");
+            assertEquals(0, amount, "bin.Bin was not emptied to the limit");
 
             try {
                 bin.addAmount(-1);

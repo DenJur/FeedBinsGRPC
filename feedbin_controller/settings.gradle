@@ -1,4 +1,5 @@
 includeBuild "../feedbin_bin_grpc"
 includeBuild "../feedbin_controller_grpc"
+includeBuild "../feedbin_bin"
 rootProject.name = 'feedbin_controller'
 

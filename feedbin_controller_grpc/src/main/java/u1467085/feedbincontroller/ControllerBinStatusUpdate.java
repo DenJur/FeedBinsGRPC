@@ -4,18 +4,18 @@
 package u1467085.feedbincontroller;
 
 /**
- * Protobuf type {@code feedbins.BinStatusUpdate}
+ * Protobuf type {@code feedbins.ControllerBinStatusUpdate}
  */
-public  final class BinStatusUpdate extends
+public  final class ControllerBinStatusUpdate extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:feedbins.BinStatusUpdate)
-    BinStatusUpdateOrBuilder {
+    // @@protoc_insertion_point(message_implements:feedbins.ControllerBinStatusUpdate)
+    ControllerBinStatusUpdateOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use BinStatusUpdate.newBuilder() to construct.
-  private BinStatusUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use ControllerBinStatusUpdate.newBuilder() to construct.
+  private ControllerBinStatusUpdate(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private BinStatusUpdate() {
+  private ControllerBinStatusUpdate() {
   }
 
   @java.lang.Override
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BinStatusUpdate(
+  private ControllerBinStatusUpdate(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -43,11 +43,11 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            u1467085.feedbincontroller.BinRecord.Builder subBuilder = null;
+            u1467085.feedbincontroller.BinId.Builder subBuilder = null;
             if (record_ != null) {
               subBuilder = record_.toBuilder();
             }
-            record_ = input.readMessage(u1467085.feedbincontroller.BinRecord.parser(), extensionRegistry);
+            record_ = input.readMessage(u1467085.feedbincontroller.BinId.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(record_);
               record_ = subBuilder.buildPartial();
@@ -99,35 +99,35 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_BinStatusUpdate_descriptor;
+    return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_ControllerBinStatusUpdate_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_BinStatusUpdate_fieldAccessorTable
+    return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_ControllerBinStatusUpdate_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            u1467085.feedbincontroller.BinStatusUpdate.class, u1467085.feedbincontroller.BinStatusUpdate.Builder.class);
+            u1467085.feedbincontroller.ControllerBinStatusUpdate.class, u1467085.feedbincontroller.ControllerBinStatusUpdate.Builder.class);
   }
 
   public static final int RECORD_FIELD_NUMBER = 1;
-  private u1467085.feedbincontroller.BinRecord record_;
+  private u1467085.feedbincontroller.BinId record_;
   /**
-   * <code>.feedbins.BinRecord record = 1;</code>
+   * <code>.feedbins.BinId record = 1;</code>
    */
   public boolean hasRecord() {
     return record_ != null;
   }
   /**
-   * <code>.feedbins.BinRecord record = 1;</code>
+   * <code>.feedbins.BinId record = 1;</code>
    */
-  public u1467085.feedbincontroller.BinRecord getRecord() {
-    return record_ == null ? u1467085.feedbincontroller.BinRecord.getDefaultInstance() : record_;
+  public u1467085.feedbincontroller.BinId getRecord() {
+    return record_ == null ? u1467085.feedbincontroller.BinId.getDefaultInstance() : record_;
   }
   /**
-   * <code>.feedbins.BinRecord record = 1;</code>
+   * <code>.feedbins.BinId record = 1;</code>
    */
-  public u1467085.feedbincontroller.BinRecordOrBuilder getRecordOrBuilder() {
+  public u1467085.feedbincontroller.BinIdOrBuilder getRecordOrBuilder() {
     return getRecord();
   }
 
@@ -231,10 +231,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof u1467085.feedbincontroller.BinStatusUpdate)) {
+    if (!(obj instanceof u1467085.feedbincontroller.ControllerBinStatusUpdate)) {
       return super.equals(obj);
     }
-    u1467085.feedbincontroller.BinStatusUpdate other = (u1467085.feedbincontroller.BinStatusUpdate) obj;
+    u1467085.feedbincontroller.ControllerBinStatusUpdate other = (u1467085.feedbincontroller.ControllerBinStatusUpdate) obj;
 
     if (hasRecord() != other.hasRecord()) return false;
     if (hasRecord()) {
@@ -278,69 +278,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(byte[] data)
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(java.io.InputStream input)
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseDelimitedFrom(java.io.InputStream input)
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseDelimitedFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static u1467085.feedbincontroller.BinStatusUpdate parseFrom(
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -353,7 +353,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(u1467085.feedbincontroller.BinStatusUpdate prototype) {
+  public static Builder newBuilder(u1467085.feedbincontroller.ControllerBinStatusUpdate prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -369,26 +369,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code feedbins.BinStatusUpdate}
+   * Protobuf type {@code feedbins.ControllerBinStatusUpdate}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:feedbins.BinStatusUpdate)
-      u1467085.feedbincontroller.BinStatusUpdateOrBuilder {
+      // @@protoc_insertion_point(builder_implements:feedbins.ControllerBinStatusUpdate)
+      u1467085.feedbincontroller.ControllerBinStatusUpdateOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_BinStatusUpdate_descriptor;
+      return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_ControllerBinStatusUpdate_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_BinStatusUpdate_fieldAccessorTable
+      return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_ControllerBinStatusUpdate_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              u1467085.feedbincontroller.BinStatusUpdate.class, u1467085.feedbincontroller.BinStatusUpdate.Builder.class);
+              u1467085.feedbincontroller.ControllerBinStatusUpdate.class, u1467085.feedbincontroller.ControllerBinStatusUpdate.Builder.class);
     }
 
-    // Construct using u1467085.feedbincontroller.BinStatusUpdate.newBuilder()
+    // Construct using u1467085.feedbincontroller.ControllerBinStatusUpdate.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -428,17 +428,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_BinStatusUpdate_descriptor;
+      return u1467085.feedbincontroller.FeedBinController.internal_static_feedbins_ControllerBinStatusUpdate_descriptor;
     }
 
     @java.lang.Override
-    public u1467085.feedbincontroller.BinStatusUpdate getDefaultInstanceForType() {
-      return u1467085.feedbincontroller.BinStatusUpdate.getDefaultInstance();
+    public u1467085.feedbincontroller.ControllerBinStatusUpdate getDefaultInstanceForType() {
+      return u1467085.feedbincontroller.ControllerBinStatusUpdate.getDefaultInstance();
     }
 
     @java.lang.Override
-    public u1467085.feedbincontroller.BinStatusUpdate build() {
-      u1467085.feedbincontroller.BinStatusUpdate result = buildPartial();
+    public u1467085.feedbincontroller.ControllerBinStatusUpdate build() {
+      u1467085.feedbincontroller.ControllerBinStatusUpdate result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -446,8 +446,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public u1467085.feedbincontroller.BinStatusUpdate buildPartial() {
-      u1467085.feedbincontroller.BinStatusUpdate result = new u1467085.feedbincontroller.BinStatusUpdate(this);
+    public u1467085.feedbincontroller.ControllerBinStatusUpdate buildPartial() {
+      u1467085.feedbincontroller.ControllerBinStatusUpdate result = new u1467085.feedbincontroller.ControllerBinStatusUpdate(this);
       if (recordBuilder_ == null) {
         result.record_ = record_;
       } else {
@@ -498,16 +498,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof u1467085.feedbincontroller.BinStatusUpdate) {
-        return mergeFrom((u1467085.feedbincontroller.BinStatusUpdate)other);
+      if (other instanceof u1467085.feedbincontroller.ControllerBinStatusUpdate) {
+        return mergeFrom((u1467085.feedbincontroller.ControllerBinStatusUpdate)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(u1467085.feedbincontroller.BinStatusUpdate other) {
-      if (other == u1467085.feedbincontroller.BinStatusUpdate.getDefaultInstance()) return this;
+    public Builder mergeFrom(u1467085.feedbincontroller.ControllerBinStatusUpdate other) {
+      if (other == u1467085.feedbincontroller.ControllerBinStatusUpdate.getDefaultInstance()) return this;
       if (other.hasRecord()) {
         mergeRecord(other.getRecord());
       }
@@ -535,11 +535,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      u1467085.feedbincontroller.BinStatusUpdate parsedMessage = null;
+      u1467085.feedbincontroller.ControllerBinStatusUpdate parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (u1467085.feedbincontroller.BinStatusUpdate) e.getUnfinishedMessage();
+        parsedMessage = (u1467085.feedbincontroller.ControllerBinStatusUpdate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -549,29 +549,29 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private u1467085.feedbincontroller.BinRecord record_;
+    private u1467085.feedbincontroller.BinId record_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        u1467085.feedbincontroller.BinRecord, u1467085.feedbincontroller.BinRecord.Builder, u1467085.feedbincontroller.BinRecordOrBuilder> recordBuilder_;
+        u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.BinId.Builder, u1467085.feedbincontroller.BinIdOrBuilder> recordBuilder_;
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
     public boolean hasRecord() {
       return recordBuilder_ != null || record_ != null;
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
-    public u1467085.feedbincontroller.BinRecord getRecord() {
+    public u1467085.feedbincontroller.BinId getRecord() {
       if (recordBuilder_ == null) {
-        return record_ == null ? u1467085.feedbincontroller.BinRecord.getDefaultInstance() : record_;
+        return record_ == null ? u1467085.feedbincontroller.BinId.getDefaultInstance() : record_;
       } else {
         return recordBuilder_.getMessage();
       }
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
-    public Builder setRecord(u1467085.feedbincontroller.BinRecord value) {
+    public Builder setRecord(u1467085.feedbincontroller.BinId value) {
       if (recordBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -585,10 +585,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
     public Builder setRecord(
-        u1467085.feedbincontroller.BinRecord.Builder builderForValue) {
+        u1467085.feedbincontroller.BinId.Builder builderForValue) {
       if (recordBuilder_ == null) {
         record_ = builderForValue.build();
         onChanged();
@@ -599,13 +599,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
-    public Builder mergeRecord(u1467085.feedbincontroller.BinRecord value) {
+    public Builder mergeRecord(u1467085.feedbincontroller.BinId value) {
       if (recordBuilder_ == null) {
         if (record_ != null) {
           record_ =
-            u1467085.feedbincontroller.BinRecord.newBuilder(record_).mergeFrom(value).buildPartial();
+            u1467085.feedbincontroller.BinId.newBuilder(record_).mergeFrom(value).buildPartial();
         } else {
           record_ = value;
         }
@@ -617,7 +617,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
     public Builder clearRecord() {
       if (recordBuilder_ == null) {
@@ -631,33 +631,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
-    public u1467085.feedbincontroller.BinRecord.Builder getRecordBuilder() {
+    public u1467085.feedbincontroller.BinId.Builder getRecordBuilder() {
       
       onChanged();
       return getRecordFieldBuilder().getBuilder();
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
-    public u1467085.feedbincontroller.BinRecordOrBuilder getRecordOrBuilder() {
+    public u1467085.feedbincontroller.BinIdOrBuilder getRecordOrBuilder() {
       if (recordBuilder_ != null) {
         return recordBuilder_.getMessageOrBuilder();
       } else {
         return record_ == null ?
-            u1467085.feedbincontroller.BinRecord.getDefaultInstance() : record_;
+            u1467085.feedbincontroller.BinId.getDefaultInstance() : record_;
       }
     }
     /**
-     * <code>.feedbins.BinRecord record = 1;</code>
+     * <code>.feedbins.BinId record = 1;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        u1467085.feedbincontroller.BinRecord, u1467085.feedbincontroller.BinRecord.Builder, u1467085.feedbincontroller.BinRecordOrBuilder> 
+        u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.BinId.Builder, u1467085.feedbincontroller.BinIdOrBuilder> 
         getRecordFieldBuilder() {
       if (recordBuilder_ == null) {
         recordBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            u1467085.feedbincontroller.BinRecord, u1467085.feedbincontroller.BinRecord.Builder, u1467085.feedbincontroller.BinRecordOrBuilder>(
+            u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.BinId.Builder, u1467085.feedbincontroller.BinIdOrBuilder>(
                 getRecord(),
                 getParentForChildren(),
                 isClean());
@@ -847,41 +847,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:feedbins.BinStatusUpdate)
+    // @@protoc_insertion_point(builder_scope:feedbins.ControllerBinStatusUpdate)
   }
 
-  // @@protoc_insertion_point(class_scope:feedbins.BinStatusUpdate)
-  private static final u1467085.feedbincontroller.BinStatusUpdate DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:feedbins.ControllerBinStatusUpdate)
+  private static final u1467085.feedbincontroller.ControllerBinStatusUpdate DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new u1467085.feedbincontroller.BinStatusUpdate();
+    DEFAULT_INSTANCE = new u1467085.feedbincontroller.ControllerBinStatusUpdate();
   }
 
-  public static u1467085.feedbincontroller.BinStatusUpdate getDefaultInstance() {
+  public static u1467085.feedbincontroller.ControllerBinStatusUpdate getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<BinStatusUpdate>
-      PARSER = new com.google.protobuf.AbstractParser<BinStatusUpdate>() {
+  private static final com.google.protobuf.Parser<ControllerBinStatusUpdate>
+      PARSER = new com.google.protobuf.AbstractParser<ControllerBinStatusUpdate>() {
     @java.lang.Override
-    public BinStatusUpdate parsePartialFrom(
+    public ControllerBinStatusUpdate parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BinStatusUpdate(input, extensionRegistry);
+      return new ControllerBinStatusUpdate(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<BinStatusUpdate> parser() {
+  public static com.google.protobuf.Parser<ControllerBinStatusUpdate> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<BinStatusUpdate> getParserForType() {
+  public com.google.protobuf.Parser<ControllerBinStatusUpdate> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public u1467085.feedbincontroller.BinStatusUpdate getDefaultInstanceForType() {
+  public u1467085.feedbincontroller.ControllerBinStatusUpdate getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -50,6 +50,11 @@
                   <project path="$PROJECT_DIR$/feedbin_controller_grpc" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/feedbin_bin">
+                <projects>
+                  <project path="$PROJECT_DIR$/feedbin_bin" />
+                </projects>
+              </build>
             </builds>
           </compositeBuild>
         </compositeConfiguration>
@@ -57,6 +62,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$/feedbin_controller" />
         <option name="modules">
           <set>
+            <option value="$PROJECT_DIR$/feedbin_bin" />
             <option value="$PROJECT_DIR$/feedbin_bin_grpc" />
             <option value="$PROJECT_DIR$/feedbin_controller" />
             <option value="$PROJECT_DIR$/feedbin_controller_grpc" />

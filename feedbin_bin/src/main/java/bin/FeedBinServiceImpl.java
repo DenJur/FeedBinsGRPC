@@ -1,6 +1,8 @@
+package bin;
+
 import com.google.protobuf.Empty;
-import exceptions.BinOverflow;
-import exceptions.BinUnderflow;
+import bin.exceptions.BinOverflow;
+import bin.exceptions.BinUnderflow;
 import io.grpc.stub.ServerCallStreamObserver;
 import io.grpc.stub.StreamObserver;
 import u1467085.feedbins.*;

@@ -1,5 +1,7 @@
-import exceptions.BinOverflow;
-import exceptions.BinUnderflow;
+package bin;
+
+import bin.exceptions.BinOverflow;
+import bin.exceptions.BinUnderflow;
 
 public class Bin {
     public final int MAX_AMOUNT;
@@ -7,7 +9,7 @@ public class Bin {
     private int stuffAmount=0;
 
     /**
-     * Bin object constructor
+     * bin.Bin object constructor
      * @param max_amount - max amount of stuff that the bin can contain
      */
     public Bin(int max_amount) {

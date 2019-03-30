@@ -30,20 +30,10 @@ public final class FeedBinController {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_feedbins_Stuff_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_feedbins_ProductionLine_descriptor;
+    internal_static_feedbins_ControllerBinStatusUpdate_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_feedbins_ProductionLine_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_feedbins_BinStatusUpdate_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_feedbins_BinStatusUpdate_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_feedbins_BinRecord_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_feedbins_BinRecord_fieldAccessorTable;
+      internal_static_feedbins_ControllerBinStatusUpdate_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_feedbins_FillBin_descriptor;
   static final 
@@ -70,30 +60,26 @@ public final class FeedBinController {
       "age\030\002 \001(\t\"(\n\017OperationStatus\022\013\n\007SUCCESS\020" +
       "\000\022\010\n\004FAIL\020\001\"&\n\005BinId\022\017\n\007address\030\001 \001(\t\022\014\n" +
       "\004port\030\002 \001(\005\"\032\n\005Stuff\022\021\n\tstuffName\030\001 \001(\t\"" +
-      "\036\n\016ProductionLine\022\014\n\004name\030\001 \001(\t\"y\n\017BinSt" +
-      "atusUpdate\022#\n\006record\030\001 \001(\0132\023.feedbins.Bi" +
-      "nRecord\022\036\n\005stuff\030\002 \001(\0132\017.feedbins.Stuff\022" +
-      "\016\n\006amount\030\003 \001(\005\022\021\n\tmaxAmount\030\004 \001(\005\"S\n\tBi" +
-      "nRecord\022&\n\004line\030\001 \001(\0132\030.feedbins.Product" +
-      "ionLine\022\036\n\005binId\030\002 \001(\0132\017.feedbins.BinId\"" +
-      "6\n\007FillBin\022\033\n\002id\030\001 \001(\0132\017.feedbins.BinId\022" +
-      "\016\n\006amount\030\002 \001(\005\"M\n\016ChangeBinStuff\022\033\n\002id\030" +
-      "\001 \001(\0132\017.feedbins.BinId\022\036\n\005stuff\030\002 \001(\0132\017." +
-      "feedbins.Stuff2\204\004\n\030FeedBinControllerServ" +
-      "ice\022I\n\022registerForUpdates\022\026.google.proto" +
-      "buf.Empty\032\031.feedbins.BinStatusUpdate0\001\022@" +
-      "\n\006addBin\022\023.feedbins.BinRecord\032!.feedbins" +
-      ".OperationStatusResponse\022S\n\024createProduc" +
-      "tionLine\022\030.feedbins.ProductionLine\032!.fee" +
-      "dbins.OperationStatusResponse\022>\n\010flushBi" +
-      "n\022\017.feedbins.BinId\032!.feedbins.OperationS" +
-      "tatusResponse\0228\n\ninspectBin\022\017.feedbins.B" +
-      "inId\032\031.feedbins.BinStatusUpdate\022@\n\010addSt" +
-      "uff\022\021.feedbins.FillBin\032!.feedbins.Operat" +
-      "ionStatusResponse\022J\n\013changeStuff\022\030.feedb" +
-      "ins.ChangeBinStuff\032!.feedbins.OperationS" +
-      "tatusResponseB6\n\032u1467085.feedbincontrol" +
-      "lerB\021FeedBinControllerP\001\242\002\002FBb\006proto3"
+      "\177\n\031ControllerBinStatusUpdate\022\037\n\006record\030\001" +
+      " \001(\0132\017.feedbins.BinId\022\036\n\005stuff\030\002 \001(\0132\017.f" +
+      "eedbins.Stuff\022\016\n\006amount\030\003 \001(\005\022\021\n\tmaxAmou" +
+      "nt\030\004 \001(\005\"6\n\007FillBin\022\033\n\002id\030\001 \001(\0132\017.feedbi" +
+      "ns.BinId\022\016\n\006amount\030\002 \001(\005\"M\n\016ChangeBinStu" +
+      "ff\022\033\n\002id\030\001 \001(\0132\017.feedbins.BinId\022\036\n\005stuff" +
+      "\030\002 \001(\0132\017.feedbins.Stuff2\302\003\n\030FeedBinContr" +
+      "ollerService\022V\n\025registerForBinUpdates\022\026." +
+      "google.protobuf.Empty\032#.feedbins.Control" +
+      "lerBinStatusUpdate0\001\022<\n\006addBin\022\017.feedbin" +
+      "s.BinId\032!.feedbins.OperationStatusRespon" +
+      "se\022>\n\010flushBin\022\017.feedbins.BinId\032!.feedbi" +
+      "ns.OperationStatusResponse\022B\n\ninspectBin" +
+      "\022\017.feedbins.BinId\032#.feedbins.ControllerB" +
+      "inStatusUpdate\022@\n\010addStuff\022\021.feedbins.Fi" +
+      "llBin\032!.feedbins.OperationStatusResponse" +
+      "\022J\n\013changeStuff\022\030.feedbins.ChangeBinStuf" +
+      "f\032!.feedbins.OperationStatusResponseB6\n\032" +
+      "u1467085.feedbincontrollerB\021FeedBinContr" +
+      "ollerP\001\242\002\002FBb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -126,32 +112,20 @@ public final class FeedBinController {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_feedbins_Stuff_descriptor,
         new java.lang.String[] { "StuffName", });
-    internal_static_feedbins_ProductionLine_descriptor =
+    internal_static_feedbins_ControllerBinStatusUpdate_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_feedbins_ProductionLine_fieldAccessorTable = new
+    internal_static_feedbins_ControllerBinStatusUpdate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_feedbins_ProductionLine_descriptor,
-        new java.lang.String[] { "Name", });
-    internal_static_feedbins_BinStatusUpdate_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_feedbins_BinStatusUpdate_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_feedbins_BinStatusUpdate_descriptor,
+        internal_static_feedbins_ControllerBinStatusUpdate_descriptor,
         new java.lang.String[] { "Record", "Stuff", "Amount", "MaxAmount", });
-    internal_static_feedbins_BinRecord_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_feedbins_BinRecord_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_feedbins_BinRecord_descriptor,
-        new java.lang.String[] { "Line", "BinId", });
     internal_static_feedbins_FillBin_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_feedbins_FillBin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_feedbins_FillBin_descriptor,
         new java.lang.String[] { "Id", "Amount", });
     internal_static_feedbins_ChangeBinStuff_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_feedbins_ChangeBinStuff_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_feedbins_ChangeBinStuff_descriptor,

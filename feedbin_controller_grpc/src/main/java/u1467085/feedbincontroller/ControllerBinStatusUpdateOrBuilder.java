@@ -3,22 +3,22 @@
 
 package u1467085.feedbincontroller;
 
-public interface BinStatusUpdateOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:feedbins.BinStatusUpdate)
+public interface ControllerBinStatusUpdateOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:feedbins.ControllerBinStatusUpdate)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.feedbins.BinRecord record = 1;</code>
+   * <code>.feedbins.BinId record = 1;</code>
    */
   boolean hasRecord();
   /**
-   * <code>.feedbins.BinRecord record = 1;</code>
+   * <code>.feedbins.BinId record = 1;</code>
    */
-  u1467085.feedbincontroller.BinRecord getRecord();
+  u1467085.feedbincontroller.BinId getRecord();
   /**
-   * <code>.feedbins.BinRecord record = 1;</code>
+   * <code>.feedbins.BinId record = 1;</code>
    */
-  u1467085.feedbincontroller.BinRecordOrBuilder getRecordOrBuilder();
+  u1467085.feedbincontroller.BinIdOrBuilder getRecordOrBuilder();
 
   /**
    * <code>.feedbins.Stuff stuff = 2;</code>

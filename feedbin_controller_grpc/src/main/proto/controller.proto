@@ -27,20 +27,11 @@ message Stuff {
     string stuffName = 1;
 }
 
-message ProductionLine {
-    string name = 1;
-}
-
-message BinStatusUpdate {
-    BinRecord record = 1;
+message ControllerBinStatusUpdate {
+    BinId record = 1;
     Stuff stuff = 2;
     int32 amount = 3;
     int32 maxAmount = 4;
-}
-
-message BinRecord {
-    ProductionLine line = 1;
-    BinId binId = 2;
 }
 
 message FillBin {
@@ -54,11 +45,10 @@ message ChangeBinStuff {
 }
 
 service FeedBinControllerService {
-    rpc registerForUpdates (google.protobuf.Empty) returns (stream BinStatusUpdate);
-    rpc addBin (BinRecord) returns (OperationStatusResponse);
-    rpc createProductionLine (ProductionLine) returns (OperationStatusResponse);
+    rpc registerForBinUpdates (google.protobuf.Empty) returns (stream ControllerBinStatusUpdate);
+    rpc addBin (BinId) returns (OperationStatusResponse);
     rpc flushBin (BinId) returns (OperationStatusResponse);
-    rpc inspectBin (BinId) returns (BinStatusUpdate);
+    rpc inspectBin (BinId) returns (ControllerBinStatusUpdate);
     rpc addStuff (FillBin) returns (OperationStatusResponse);
     rpc changeStuff (ChangeBinStuff) returns (OperationStatusResponse);
 }

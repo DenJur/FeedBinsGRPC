@@ -28,59 +28,59 @@ public final class FeedBinControllerServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      u1467085.feedbincontroller.BinStatusUpdate> getRegisterForUpdatesMethod;
+      u1467085.feedbincontroller.ControllerBinStatusUpdate> getRegisterForBinUpdatesMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "registerForUpdates",
+      fullMethodName = SERVICE_NAME + '/' + "registerForBinUpdates",
       requestType = com.google.protobuf.Empty.class,
-      responseType = u1467085.feedbincontroller.BinStatusUpdate.class,
+      responseType = u1467085.feedbincontroller.ControllerBinStatusUpdate.class,
       methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      u1467085.feedbincontroller.BinStatusUpdate> getRegisterForUpdatesMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, u1467085.feedbincontroller.BinStatusUpdate> getRegisterForUpdatesMethod;
-    if ((getRegisterForUpdatesMethod = FeedBinControllerServiceGrpc.getRegisterForUpdatesMethod) == null) {
+      u1467085.feedbincontroller.ControllerBinStatusUpdate> getRegisterForBinUpdatesMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, u1467085.feedbincontroller.ControllerBinStatusUpdate> getRegisterForBinUpdatesMethod;
+    if ((getRegisterForBinUpdatesMethod = FeedBinControllerServiceGrpc.getRegisterForBinUpdatesMethod) == null) {
       synchronized (FeedBinControllerServiceGrpc.class) {
-        if ((getRegisterForUpdatesMethod = FeedBinControllerServiceGrpc.getRegisterForUpdatesMethod) == null) {
-          FeedBinControllerServiceGrpc.getRegisterForUpdatesMethod = getRegisterForUpdatesMethod = 
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, u1467085.feedbincontroller.BinStatusUpdate>newBuilder()
+        if ((getRegisterForBinUpdatesMethod = FeedBinControllerServiceGrpc.getRegisterForBinUpdatesMethod) == null) {
+          FeedBinControllerServiceGrpc.getRegisterForBinUpdatesMethod = getRegisterForBinUpdatesMethod = 
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, u1467085.feedbincontroller.ControllerBinStatusUpdate>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
               .setFullMethodName(generateFullMethodName(
-                  "feedbins.FeedBinControllerService", "registerForUpdates"))
+                  "feedbins.FeedBinControllerService", "registerForBinUpdates"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  u1467085.feedbincontroller.BinStatusUpdate.getDefaultInstance()))
-                  .setSchemaDescriptor(new FeedBinControllerServiceMethodDescriptorSupplier("registerForUpdates"))
+                  u1467085.feedbincontroller.ControllerBinStatusUpdate.getDefaultInstance()))
+                  .setSchemaDescriptor(new FeedBinControllerServiceMethodDescriptorSupplier("registerForBinUpdates"))
                   .build();
           }
         }
      }
-     return getRegisterForUpdatesMethod;
+     return getRegisterForBinUpdatesMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinRecord,
+  private static volatile io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId,
       u1467085.feedbincontroller.OperationStatusResponse> getAddBinMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "addBin",
-      requestType = u1467085.feedbincontroller.BinRecord.class,
+      requestType = u1467085.feedbincontroller.BinId.class,
       responseType = u1467085.feedbincontroller.OperationStatusResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinRecord,
+  public static io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId,
       u1467085.feedbincontroller.OperationStatusResponse> getAddBinMethod() {
-    io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinRecord, u1467085.feedbincontroller.OperationStatusResponse> getAddBinMethod;
+    io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.OperationStatusResponse> getAddBinMethod;
     if ((getAddBinMethod = FeedBinControllerServiceGrpc.getAddBinMethod) == null) {
       synchronized (FeedBinControllerServiceGrpc.class) {
         if ((getAddBinMethod = FeedBinControllerServiceGrpc.getAddBinMethod) == null) {
           FeedBinControllerServiceGrpc.getAddBinMethod = getAddBinMethod = 
-              io.grpc.MethodDescriptor.<u1467085.feedbincontroller.BinRecord, u1467085.feedbincontroller.OperationStatusResponse>newBuilder()
+              io.grpc.MethodDescriptor.<u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.OperationStatusResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "feedbins.FeedBinControllerService", "addBin"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  u1467085.feedbincontroller.BinRecord.getDefaultInstance()))
+                  u1467085.feedbincontroller.BinId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   u1467085.feedbincontroller.OperationStatusResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new FeedBinControllerServiceMethodDescriptorSupplier("addBin"))
@@ -89,38 +89,6 @@ public final class FeedBinControllerServiceGrpc {
         }
      }
      return getAddBinMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<u1467085.feedbincontroller.ProductionLine,
-      u1467085.feedbincontroller.OperationStatusResponse> getCreateProductionLineMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "createProductionLine",
-      requestType = u1467085.feedbincontroller.ProductionLine.class,
-      responseType = u1467085.feedbincontroller.OperationStatusResponse.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<u1467085.feedbincontroller.ProductionLine,
-      u1467085.feedbincontroller.OperationStatusResponse> getCreateProductionLineMethod() {
-    io.grpc.MethodDescriptor<u1467085.feedbincontroller.ProductionLine, u1467085.feedbincontroller.OperationStatusResponse> getCreateProductionLineMethod;
-    if ((getCreateProductionLineMethod = FeedBinControllerServiceGrpc.getCreateProductionLineMethod) == null) {
-      synchronized (FeedBinControllerServiceGrpc.class) {
-        if ((getCreateProductionLineMethod = FeedBinControllerServiceGrpc.getCreateProductionLineMethod) == null) {
-          FeedBinControllerServiceGrpc.getCreateProductionLineMethod = getCreateProductionLineMethod = 
-              io.grpc.MethodDescriptor.<u1467085.feedbincontroller.ProductionLine, u1467085.feedbincontroller.OperationStatusResponse>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "feedbins.FeedBinControllerService", "createProductionLine"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  u1467085.feedbincontroller.ProductionLine.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  u1467085.feedbincontroller.OperationStatusResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new FeedBinControllerServiceMethodDescriptorSupplier("createProductionLine"))
-                  .build();
-          }
-        }
-     }
-     return getCreateProductionLineMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId,
@@ -156,21 +124,21 @@ public final class FeedBinControllerServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId,
-      u1467085.feedbincontroller.BinStatusUpdate> getInspectBinMethod;
+      u1467085.feedbincontroller.ControllerBinStatusUpdate> getInspectBinMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "inspectBin",
       requestType = u1467085.feedbincontroller.BinId.class,
-      responseType = u1467085.feedbincontroller.BinStatusUpdate.class,
+      responseType = u1467085.feedbincontroller.ControllerBinStatusUpdate.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId,
-      u1467085.feedbincontroller.BinStatusUpdate> getInspectBinMethod() {
-    io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.BinStatusUpdate> getInspectBinMethod;
+      u1467085.feedbincontroller.ControllerBinStatusUpdate> getInspectBinMethod() {
+    io.grpc.MethodDescriptor<u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.ControllerBinStatusUpdate> getInspectBinMethod;
     if ((getInspectBinMethod = FeedBinControllerServiceGrpc.getInspectBinMethod) == null) {
       synchronized (FeedBinControllerServiceGrpc.class) {
         if ((getInspectBinMethod = FeedBinControllerServiceGrpc.getInspectBinMethod) == null) {
           FeedBinControllerServiceGrpc.getInspectBinMethod = getInspectBinMethod = 
-              io.grpc.MethodDescriptor.<u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.BinStatusUpdate>newBuilder()
+              io.grpc.MethodDescriptor.<u1467085.feedbincontroller.BinId, u1467085.feedbincontroller.ControllerBinStatusUpdate>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "feedbins.FeedBinControllerService", "inspectBin"))
@@ -178,7 +146,7 @@ public final class FeedBinControllerServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   u1467085.feedbincontroller.BinId.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  u1467085.feedbincontroller.BinStatusUpdate.getDefaultInstance()))
+                  u1467085.feedbincontroller.ControllerBinStatusUpdate.getDefaultInstance()))
                   .setSchemaDescriptor(new FeedBinControllerServiceMethodDescriptorSupplier("inspectBin"))
                   .build();
           }
@@ -280,23 +248,16 @@ public final class FeedBinControllerServiceGrpc {
 
     /**
      */
-    public void registerForUpdates(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.BinStatusUpdate> responseObserver) {
-      asyncUnimplementedUnaryCall(getRegisterForUpdatesMethod(), responseObserver);
+    public void registerForBinUpdates(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.ControllerBinStatusUpdate> responseObserver) {
+      asyncUnimplementedUnaryCall(getRegisterForBinUpdatesMethod(), responseObserver);
     }
 
     /**
      */
-    public void addBin(u1467085.feedbincontroller.BinRecord request,
+    public void addBin(u1467085.feedbincontroller.BinId request,
         io.grpc.stub.StreamObserver<u1467085.feedbincontroller.OperationStatusResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getAddBinMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void createProductionLine(u1467085.feedbincontroller.ProductionLine request,
-        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.OperationStatusResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(getCreateProductionLineMethod(), responseObserver);
     }
 
     /**
@@ -309,7 +270,7 @@ public final class FeedBinControllerServiceGrpc {
     /**
      */
     public void inspectBin(u1467085.feedbincontroller.BinId request,
-        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.BinStatusUpdate> responseObserver) {
+        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.ControllerBinStatusUpdate> responseObserver) {
       asyncUnimplementedUnaryCall(getInspectBinMethod(), responseObserver);
     }
 
@@ -330,26 +291,19 @@ public final class FeedBinControllerServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getRegisterForUpdatesMethod(),
+            getRegisterForBinUpdatesMethod(),
             asyncServerStreamingCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
-                u1467085.feedbincontroller.BinStatusUpdate>(
-                  this, METHODID_REGISTER_FOR_UPDATES)))
+                u1467085.feedbincontroller.ControllerBinStatusUpdate>(
+                  this, METHODID_REGISTER_FOR_BIN_UPDATES)))
           .addMethod(
             getAddBinMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                u1467085.feedbincontroller.BinRecord,
+                u1467085.feedbincontroller.BinId,
                 u1467085.feedbincontroller.OperationStatusResponse>(
                   this, METHODID_ADD_BIN)))
-          .addMethod(
-            getCreateProductionLineMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                u1467085.feedbincontroller.ProductionLine,
-                u1467085.feedbincontroller.OperationStatusResponse>(
-                  this, METHODID_CREATE_PRODUCTION_LINE)))
           .addMethod(
             getFlushBinMethod(),
             asyncUnaryCall(
@@ -362,7 +316,7 @@ public final class FeedBinControllerServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 u1467085.feedbincontroller.BinId,
-                u1467085.feedbincontroller.BinStatusUpdate>(
+                u1467085.feedbincontroller.ControllerBinStatusUpdate>(
                   this, METHODID_INSPECT_BIN)))
           .addMethod(
             getAddStuffMethod(),
@@ -402,26 +356,18 @@ public final class FeedBinControllerServiceGrpc {
 
     /**
      */
-    public void registerForUpdates(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.BinStatusUpdate> responseObserver) {
+    public void registerForBinUpdates(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.ControllerBinStatusUpdate> responseObserver) {
       asyncServerStreamingCall(
-          getChannel().newCall(getRegisterForUpdatesMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getRegisterForBinUpdatesMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void addBin(u1467085.feedbincontroller.BinRecord request,
+    public void addBin(u1467085.feedbincontroller.BinId request,
         io.grpc.stub.StreamObserver<u1467085.feedbincontroller.OperationStatusResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getAddBinMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void createProductionLine(u1467085.feedbincontroller.ProductionLine request,
-        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.OperationStatusResponse> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getCreateProductionLineMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -435,7 +381,7 @@ public final class FeedBinControllerServiceGrpc {
     /**
      */
     public void inspectBin(u1467085.feedbincontroller.BinId request,
-        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.BinStatusUpdate> responseObserver) {
+        io.grpc.stub.StreamObserver<u1467085.feedbincontroller.ControllerBinStatusUpdate> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getInspectBinMethod(), getCallOptions()), request, responseObserver);
     }
@@ -477,24 +423,17 @@ public final class FeedBinControllerServiceGrpc {
 
     /**
      */
-    public java.util.Iterator<u1467085.feedbincontroller.BinStatusUpdate> registerForUpdates(
+    public java.util.Iterator<u1467085.feedbincontroller.ControllerBinStatusUpdate> registerForBinUpdates(
         com.google.protobuf.Empty request) {
       return blockingServerStreamingCall(
-          getChannel(), getRegisterForUpdatesMethod(), getCallOptions(), request);
+          getChannel(), getRegisterForBinUpdatesMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public u1467085.feedbincontroller.OperationStatusResponse addBin(u1467085.feedbincontroller.BinRecord request) {
+    public u1467085.feedbincontroller.OperationStatusResponse addBin(u1467085.feedbincontroller.BinId request) {
       return blockingUnaryCall(
           getChannel(), getAddBinMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public u1467085.feedbincontroller.OperationStatusResponse createProductionLine(u1467085.feedbincontroller.ProductionLine request) {
-      return blockingUnaryCall(
-          getChannel(), getCreateProductionLineMethod(), getCallOptions(), request);
     }
 
     /**
@@ -506,7 +445,7 @@ public final class FeedBinControllerServiceGrpc {
 
     /**
      */
-    public u1467085.feedbincontroller.BinStatusUpdate inspectBin(u1467085.feedbincontroller.BinId request) {
+    public u1467085.feedbincontroller.ControllerBinStatusUpdate inspectBin(u1467085.feedbincontroller.BinId request) {
       return blockingUnaryCall(
           getChannel(), getInspectBinMethod(), getCallOptions(), request);
     }
@@ -547,17 +486,9 @@ public final class FeedBinControllerServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<u1467085.feedbincontroller.OperationStatusResponse> addBin(
-        u1467085.feedbincontroller.BinRecord request) {
+        u1467085.feedbincontroller.BinId request) {
       return futureUnaryCall(
           getChannel().newCall(getAddBinMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<u1467085.feedbincontroller.OperationStatusResponse> createProductionLine(
-        u1467085.feedbincontroller.ProductionLine request) {
-      return futureUnaryCall(
-          getChannel().newCall(getCreateProductionLineMethod(), getCallOptions()), request);
     }
 
     /**
@@ -570,7 +501,7 @@ public final class FeedBinControllerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<u1467085.feedbincontroller.BinStatusUpdate> inspectBin(
+    public com.google.common.util.concurrent.ListenableFuture<u1467085.feedbincontroller.ControllerBinStatusUpdate> inspectBin(
         u1467085.feedbincontroller.BinId request) {
       return futureUnaryCall(
           getChannel().newCall(getInspectBinMethod(), getCallOptions()), request);
@@ -593,13 +524,12 @@ public final class FeedBinControllerServiceGrpc {
     }
   }
 
-  private static final int METHODID_REGISTER_FOR_UPDATES = 0;
+  private static final int METHODID_REGISTER_FOR_BIN_UPDATES = 0;
   private static final int METHODID_ADD_BIN = 1;
-  private static final int METHODID_CREATE_PRODUCTION_LINE = 2;
-  private static final int METHODID_FLUSH_BIN = 3;
-  private static final int METHODID_INSPECT_BIN = 4;
-  private static final int METHODID_ADD_STUFF = 5;
-  private static final int METHODID_CHANGE_STUFF = 6;
+  private static final int METHODID_FLUSH_BIN = 2;
+  private static final int METHODID_INSPECT_BIN = 3;
+  private static final int METHODID_ADD_STUFF = 4;
+  private static final int METHODID_CHANGE_STUFF = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -618,16 +548,12 @@ public final class FeedBinControllerServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_REGISTER_FOR_UPDATES:
-          serviceImpl.registerForUpdates((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<u1467085.feedbincontroller.BinStatusUpdate>) responseObserver);
+        case METHODID_REGISTER_FOR_BIN_UPDATES:
+          serviceImpl.registerForBinUpdates((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<u1467085.feedbincontroller.ControllerBinStatusUpdate>) responseObserver);
           break;
         case METHODID_ADD_BIN:
-          serviceImpl.addBin((u1467085.feedbincontroller.BinRecord) request,
-              (io.grpc.stub.StreamObserver<u1467085.feedbincontroller.OperationStatusResponse>) responseObserver);
-          break;
-        case METHODID_CREATE_PRODUCTION_LINE:
-          serviceImpl.createProductionLine((u1467085.feedbincontroller.ProductionLine) request,
+          serviceImpl.addBin((u1467085.feedbincontroller.BinId) request,
               (io.grpc.stub.StreamObserver<u1467085.feedbincontroller.OperationStatusResponse>) responseObserver);
           break;
         case METHODID_FLUSH_BIN:
@@ -636,7 +562,7 @@ public final class FeedBinControllerServiceGrpc {
           break;
         case METHODID_INSPECT_BIN:
           serviceImpl.inspectBin((u1467085.feedbincontroller.BinId) request,
-              (io.grpc.stub.StreamObserver<u1467085.feedbincontroller.BinStatusUpdate>) responseObserver);
+              (io.grpc.stub.StreamObserver<u1467085.feedbincontroller.ControllerBinStatusUpdate>) responseObserver);
           break;
         case METHODID_ADD_STUFF:
           serviceImpl.addStuff((u1467085.feedbincontroller.FillBin) request,
@@ -707,9 +633,8 @@ public final class FeedBinControllerServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new FeedBinControllerServiceFileDescriptorSupplier())
-              .addMethod(getRegisterForUpdatesMethod())
+              .addMethod(getRegisterForBinUpdatesMethod())
               .addMethod(getAddBinMethod())
-              .addMethod(getCreateProductionLineMethod())
               .addMethod(getFlushBinMethod())
               .addMethod(getInspectBinMethod())
               .addMethod(getAddStuffMethod())
