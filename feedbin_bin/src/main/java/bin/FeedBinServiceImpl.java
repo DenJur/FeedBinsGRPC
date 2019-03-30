@@ -40,6 +40,7 @@ public class FeedBinServiceImpl extends FeedBinServiceGrpc.FeedBinServiceImplBas
         ServerCallStreamObserver<BinStatusUpdate> castObserver = (ServerCallStreamObserver<BinStatusUpdate>) responseObserver;
         castObserver.setOnCancelHandler(() -> observers.remove(castObserver));
         observers.add(castObserver);
+        responseObserver.onNext(buildNewStatus());
     }
 
     /**

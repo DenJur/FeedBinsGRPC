@@ -36,6 +36,20 @@ public class FeedBinControllerServiceImpl extends FeedBinControllerServiceGrpc.F
                 (ServerCallStreamObserver<ControllerBinStatusUpdate>) responseObserver;
         castObserver.setOnCancelHandler(() -> observers.remove(castObserver));
         observers.add(castObserver);
+        productionLine.forEach(productionLineBin -> {
+            ListenableFuture<BinStatusUpdate> future = productionLineBin.actionCallerStub
+                    .inspectBin(Empty.newBuilder().build());
+            try {
+                BinStatusUpdate result = future.get(10, TimeUnit.SECONDS);
+                responseObserver.onNext(ControllerBinStatusUpdate.newBuilder()
+                        .setMaxAmount(result.getMaxAmount())
+                        .setRecord(BinId.newBuilder().setAddress(productionLineBin.address).setPort(productionLineBin.port).build())
+                        .setAmount(result.getAmount().getStuffAmount())
+                        .setStuff(Stuff.newBuilder().setStuffName(result.getStuff().getStuffName())).build());
+            } catch (InterruptedException | TimeoutException | ExecutionException ignored) {
+                responseObserver.onError(ignored);
+            }
+        });
     }
 
     @Override
@@ -50,13 +64,14 @@ public class FeedBinControllerServiceImpl extends FeedBinControllerServiceGrpc.F
             return;
         }
         productionLine.add(new ProductionLineBin(request.getAddress(), request.getPort(), this));
+
         responseObserver.onNext(
                 OperationStatusResponse.newBuilder().setResult(OperationStatusResponse.OperationStatus.SUCCESS).build());
         responseObserver.onCompleted();
     }
 
     @Override
-    public void flushBin(BinId request, StreamObserver<OperationStatusResponse> responseObserver) {
+    public synchronized void flushBin(BinId request, StreamObserver<OperationStatusResponse> responseObserver) {
         Optional<ProductionLineBin> bin = productionLine.stream().filter(productionLineBin ->
                 Objects.equals(request.getAddress(), productionLineBin.address)
                         && request.getPort() == productionLineBin.port).findFirst();
@@ -146,7 +161,7 @@ public class FeedBinControllerServiceImpl extends FeedBinControllerServiceGrpc.F
     }
 
     @Override
-    public void changeStuff(ChangeBinStuff request, StreamObserver<OperationStatusResponse> responseObserver) {
+    public synchronized void changeStuff(ChangeBinStuff request, StreamObserver<OperationStatusResponse> responseObserver) {
         Optional<ProductionLineBin> bin = productionLine.stream().filter(productionLineBin ->
                 Objects.equals(request.getId().getAddress(), productionLineBin.address)
                         && request.getId().getPort() == productionLineBin.port).findFirst();

@@ -57,14 +57,9 @@ public class BinServerTest {
 
     /**
      * Check that server returns correct information on inspectBin call
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestInspectBin() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestInspectBin() {
         ListenableFuture<BinStatusUpdate> future = serviceStub.inspectBin(Empty.newBuilder().build());
         try {
             BinStatusUpdate result = future.get(1, TimeUnit.SECONDS);
@@ -77,14 +72,9 @@ public class BinServerTest {
 
     /**
      * Test bin server flush call
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestBinFlush() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestBinFlush() {
         try {
             OperationStatusResponse flushResult = serviceStub.flushBin(Empty.newBuilder().build()).get(1, TimeUnit.SECONDS);
             assertEquals(OperationStatusResponse.OperationStatus.SUCCESS, flushResult.getResult(), "Flush did not return success");
@@ -104,14 +94,9 @@ public class BinServerTest {
 
     /**
      * Test bin add call with a valid request
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestBinAdd() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestBinAdd() {
         try {
             OperationStatusResponse addResult = serviceStub.addStuff(StuffAmount.newBuilder().setStuffAmount(10).build()).get(1, TimeUnit.SECONDS);
             assertEquals(OperationStatusResponse.OperationStatus.SUCCESS, addResult.getResult(), "Add did not return success");
@@ -129,14 +114,9 @@ public class BinServerTest {
 
     /**
      * Test bin add with an invalid request
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestBinAddInvalid() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestBinAddInvalid() {
         try {
             OperationStatusResponse addResult = serviceStub.addStuff(StuffAmount.newBuilder().setStuffAmount(21).build()).get(1, TimeUnit.SECONDS);
             assertEquals(OperationStatusResponse.OperationStatus.FAIL, addResult.getResult(), "Flush did not return fail");
@@ -154,14 +134,9 @@ public class BinServerTest {
 
     /**
      * Test bin add with a negative stuff amount
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestBinRemove() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestBinRemove() {
         try {
             OperationStatusResponse addResult = serviceStub.addStuff(StuffAmount.newBuilder().setStuffAmount(-10).build()).get(1, TimeUnit.SECONDS);
             assertEquals(OperationStatusResponse.OperationStatus.SUCCESS, addResult.getResult(), "Remove did not return success");
@@ -179,14 +154,9 @@ public class BinServerTest {
 
     /**
      * Test bin add with a negative invalid amount of stuff
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestBinRemoveInvalid() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestBinRemoveInvalid() {
         try {
             OperationStatusResponse addResult = serviceStub.addStuff(StuffAmount.newBuilder().setStuffAmount(-21).build()).get(1, TimeUnit.SECONDS);
             assertEquals(OperationStatusResponse.OperationStatus.FAIL, addResult.getResult(), "Flush did not return fail");
@@ -204,14 +174,9 @@ public class BinServerTest {
 
     /**
      * Test that bin product name is changed correctly
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestBinChangeStuff() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestBinChangeStuff() {
         try {
             OperationStatusResponse addResult = serviceStub.changeStuff(Stuff.newBuilder().setStuffName("NewProduct").build()).get(1, TimeUnit.SECONDS);
             assertEquals(OperationStatusResponse.OperationStatus.SUCCESS, addResult.getResult(), "Rename did not return success");
@@ -229,25 +194,20 @@ public class BinServerTest {
 
     /**
      * Test that server sends out notifications about bin changes correctly
-     *
-     * @throws BinOverflow
-     * @throws BinUnderflow
-     * @throws IOException
      */
     @Test
-    public void TestBinUpdateMonitoring() throws BinOverflow, BinUnderflow, IOException {
-        TestSetup();
+    public void TestBinUpdateMonitoring() {
         //need to create async stub for streaming
         FeedBinServiceGrpc.FeedBinServiceStub serviceAsyncStub = FeedBinServiceGrpc.newStub(channel);
         final boolean[] updated = {false};
         try {
-            //cancelable context is required to graciously close streaming reuest when done
+            //cancelable context is required to graciously close streaming request when done
             Context.CancellableContext context = Context.current().withCancellation();
             context.run(() -> serviceAsyncStub
                     .registerForUpdates(Empty.newBuilder().build(), new StreamObserver<BinStatusUpdate>() {
                         @Override
                         public void onNext(BinStatusUpdate value) {
-                            assertEquals(30, value.getAmount().getStuffAmount(), "Update return wrong amount");
+                            assertEquals(20, value.getAmount().getStuffAmount(), "Update return wrong amount");
                             assertEquals("Product", value.getStuff().getStuffName(), "Update return wrong name");
                             updated[0] = true;
                         }
@@ -263,14 +223,15 @@ public class BinServerTest {
                         }
                     }));
 
-            // run a test add command so that bin update can get propagated to clients
-            serviceStub.addStuff(StuffAmount.newBuilder().setStuffAmount(10).build()).get(1, TimeUnit.SECONDS);
+            synchronized (this){
+                this.wait(1000);
+            }
             // cancel notification stream
             context.cancel(Status.CANCELLED.asException());
             // check that any updates were performed
             assertTrue(updated[0], "Client was never updated");
 
-        } catch (InterruptedException | ExecutionException | TimeoutException e) {
+        } catch (InterruptedException e) {
             fail(e);
         }
     }
