@@ -1,0 +1,3 @@
+includeBuild "../feedbin_controller_grpc"
+rootProject.name = 'feedbin_supervisor'
+

@@ -12,6 +12,8 @@
       <module name="feedbin_controller.test" target="1.8" />
       <module name="feedbin_controller_grpc.main" target="1.8" />
       <module name="feedbin_controller_grpc.test" target="1.8" />
+      <module name="feedbin_supervisor.main" target="1.8" />
+      <module name="feedbin_supervisor.test" target="1.8" />
       <module name="FeedBinsGRPC.feedbin_bin.main" target="1.8" />
       <module name="FeedBinsGRPC.feedbin_bin.test" target="1.8" />
       <module name="FeedBinsGRPC.feedbin_controller_grpc.main" target="1.8" />

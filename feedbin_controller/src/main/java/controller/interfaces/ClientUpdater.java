@@ -1,5 +1,6 @@
 package controller.interfaces;
 
+import controller.models.ProductionLineBin;
 import u1467085.feedbincontroller.ControllerBinStatusUpdate;
 
 /**
@@ -7,4 +8,5 @@ import u1467085.feedbincontroller.ControllerBinStatusUpdate;
  */
 public interface ClientUpdater {
     void NotifyClients(ControllerBinStatusUpdate update);
+    void ForgetNotifier(ProductionLineBin bin);
 }

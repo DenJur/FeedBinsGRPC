@@ -63,7 +63,7 @@ public class FeedBinControllerServiceImpl extends FeedBinControllerServiceGrpc.F
                         .setAmount(result.getAmount().getStuffAmount())
                         .setStuff(Stuff.newBuilder().setStuffName(result.getStuff().getStuffName())).build());
             } catch (InterruptedException | TimeoutException | ExecutionException e) {
-                responseObserver.onError(e);
+//                responseObserver.onError(e);
             }
         });
     }
@@ -265,6 +265,19 @@ public class FeedBinControllerServiceImpl extends FeedBinControllerServiceGrpc.F
     @Override
     public void NotifyClients(ControllerBinStatusUpdate update) {
         observers.iterator().
-                forEachRemaining(binStatusUpdateStreamObserver -> binStatusUpdateStreamObserver.onNext(update));
+                forEachRemaining(binStatusUpdateStreamObserver -> {
+                    try {
+                        if(!binStatusUpdateStreamObserver.isCancelled())
+                        binStatusUpdateStreamObserver.onNext(update);
+                        else observers.remove(binStatusUpdateStreamObserver);
+                    } catch (Exception e){
+                        e.printStackTrace();
+                    }
+                });
+    }
+
+    @Override
+    public void ForgetNotifier(ProductionLineBin bin) {
+        productionLine.remove(bin);
     }
 }

@@ -51,12 +51,19 @@ public class ProductionLineBin {
         updateListenerStub = FeedBinServiceGrpc.newStub(channel);
         //need to fork current context and make it cancelable otherwise stream gets canceled by other requests
         updateContext=Context.current().fork().withCancellation();
-        updateContext.run(() -> updateListenerStub.registerForUpdates(Empty.newBuilder().build(), new NotificationObserver()));
+        updateContext.run(() -> updateListenerStub.registerForUpdates(Empty.newBuilder().build(),
+                new NotificationObserver(this)));
 
         actionCallerStub = FeedBinServiceGrpc.newFutureStub(channel);
     }
 
     private class NotificationObserver implements StreamObserver<BinStatusUpdate> {
+
+        private final ProductionLineBin bin;
+
+        private NotificationObserver(ProductionLineBin bin){
+            this.bin=bin;
+        }
 
         @Override
         public void onNext(BinStatusUpdate value) {
@@ -71,7 +78,7 @@ public class ProductionLineBin {
 
         @Override
         public void onError(Throwable t) {
-            t.printStackTrace();
+            clientUpdater.ForgetNotifier(bin);
         }
 
         @Override

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox fx:id="boxContainer" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0">
+         <children>
+            <Label fx:id="addressLabel" text="localhost:9090" />
+            <Label fx:id="contentsLabel" text="20/40" />
+         </children>
+      </VBox>
+      <Button fx:id="inspectButton" mnemonicParsing="false" text="Inspect" />
+      <Button fx:id="changeButton" mnemonicParsing="false" text="Change" />
+      <Button fx:id="addButton" mnemonicParsing="false" text="Add" />
+      <Button fx:id="flushButton" mnemonicParsing="false" text="Flush" />
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>
