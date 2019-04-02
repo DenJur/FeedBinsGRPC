@@ -8,7 +8,7 @@
 
 <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Enter stuff amount:" />
+      <Label text="Enter stuff amount to add or remove:" />
       <Spinner fx:id="amountSpinner" editable="true" />
    </children>
    <padding>

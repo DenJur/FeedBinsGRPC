@@ -17,7 +17,7 @@
       </VBox>
       <Button fx:id="inspectButton" mnemonicParsing="false" text="Inspect" />
       <Button fx:id="changeButton" mnemonicParsing="false" text="Change" />
-      <Button fx:id="addButton" mnemonicParsing="false" text="Add" />
+      <Button fx:id="addButton" mnemonicParsing="false" text="Add/Remove" />
       <Button fx:id="flushButton" mnemonicParsing="false" text="Flush" />
    </children>
    <padding>

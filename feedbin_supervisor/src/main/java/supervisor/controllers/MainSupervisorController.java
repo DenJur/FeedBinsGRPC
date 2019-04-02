@@ -7,8 +7,11 @@ import javafx.scene.control.ListView;
 import supervisor.components.BinCell;
 import supervisor.components.ServiceConnector;
 import supervisor.dialogs.ConnectDialog;
+import supervisor.dialogs.RecipeDialog;
 import supervisor.dialogs.UtilDialogs;
+import supervisor.exceptions.IngredientOperationException;
 import supervisor.exceptions.OperationFailure;
+import supervisor.exceptions.RecipeExecutionException;
 import u1467085.feedbincontroller.BinId;
 import u1467085.feedbincontroller.ControllerBinStatusUpdate;
 import u1467085.feedbincontroller.OperationStatusResponse;
@@ -80,6 +83,20 @@ public class MainSupervisorController implements Initializable {
                     connector.updateBinRecord(binStatus);
                 } catch (Exception e) {
                     UtilDialogs.ShowErrorDialog(e, "Error contacting controller server.");
+                }
+            });
+            event.consume();
+        });
+
+        prepareRecipe.setOnMouseClicked(event -> {
+            RecipeDialog dialog = new RecipeDialog();
+            dialog.showAndWait().ifPresent(result -> {
+                try{
+                    result.executeIfValid();
+                    UtilDialogs.ShowInformationDialog(String.format("Produced %d cubic liters of %s",
+                            result.getFinalProductAmount(), result.getFinalProductName()));
+                } catch (RecipeExecutionException | IngredientOperationException e) {
+                    UtilDialogs.ShowErrorDialog(e,e.getMessage());
                 }
             });
             event.consume();

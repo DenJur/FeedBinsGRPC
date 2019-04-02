@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.util.Pair;
-import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,23 +48,20 @@ public class ConnectDialog extends Dialog<Pair<String, Integer>> implements Init
         SpinnerValueFactory.IntegerSpinnerValueFactory factory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 65535, 9090);
         portSpinner.setValueFactory(factory);
-        portSpinner.getEditor().setOnAction(action -> {
-            String text = portSpinner.getEditor().getText();
-            StringConverter<Integer> converter = factory.getConverter();
-            if (converter != null) {
-                try {
-                    Integer value = converter.fromString(text);
-                    if (null != value) {
-                        factory.setValue(value);
-                    } else {
-                        portSpinner.getEditor().setText(converter.toString(factory.getValue()));
-                    }
-                } catch (NumberFormatException e) {
-                    portSpinner.getEditor().setText(converter.toString(factory.getValue()));
-                }
+        TextFormatter<Object> textFormatterDigit = new TextFormatter<>(c -> {
+
+            if (c.getText().matches("[^0-9]+") && !c.getText().isEmpty())
+                return null;
+
+            try {
+                Integer newVal = Integer.parseInt(c.getControlNewText());
+                return (newVal >= factory.getMin() && factory.getMax() >= newVal) ? c : null;
+            } catch (Exception ex) {
+                c.setText("0");
+                return c;
             }
-            action.consume();
         });
+        portSpinner.getEditor().setTextFormatter(textFormatterDigit);
 
 
         TextFormatter<String> textFormatter = new TextFormatter<>(change -> {

@@ -48,4 +48,15 @@ public class UtilDialogs {
 
         alert.showAndWait();
     }
+
+    /**
+     * Displays dialog to the user containing a message
+     * @param message - message to show user
+     */
+    public static void ShowInformationDialog(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
 }

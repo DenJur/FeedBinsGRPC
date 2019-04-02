@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,14 +26,14 @@ public class StuffAmountDialog extends Dialog<Integer> implements Initializable 
             getDialogPane().setContent(root);
 
 
-            ButtonType add = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
+            ButtonType ok = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
             ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
             setResultConverter(buttonType -> {
-                if (buttonType == add)
+                if (buttonType == ok)
                     return amountSpinner.getValue();
                 return null;
             });
-            getDialogPane().getButtonTypes().setAll(add, cancel);
+            getDialogPane().getButtonTypes().setAll(ok, cancel);
             setTitle("Add Stuff");
             setHeaderText("Provide information about the amount of stuff to be added");
 
@@ -48,22 +47,19 @@ public class StuffAmountDialog extends Dialog<Integer> implements Initializable 
         SpinnerValueFactory.IntegerSpinnerValueFactory factory =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(minimum, maximum, 0);
         amountSpinner.setValueFactory(factory);
-        amountSpinner.getEditor().setOnAction(action -> {
-            String text = amountSpinner.getEditor().getText();
-            StringConverter<Integer> converter = factory.getConverter();
-            if (converter != null) {
-                try {
-                    Integer value = converter.fromString(text);
-                    if (null != value) {
-                        factory.setValue(value);
-                    } else {
-                        amountSpinner.getEditor().setText(converter.toString(factory.getValue()));
-                    }
-                } catch (NumberFormatException e) {
-                    amountSpinner.getEditor().setText(converter.toString(factory.getValue()));
-                }
+        TextFormatter<Object> textFormatterDigit = new TextFormatter<>(c -> {
+
+            if (c.getText().matches("[^0-9]+") && !c.getText().isEmpty())
+                return null;
+
+            try {
+                Integer newVal = Integer.parseInt(c.getControlNewText());
+                return (newVal >= factory.getMin() && factory.getMax() >= newVal) ? c : null;
+            } catch (Exception ex) {
+                c.setText("0");
+                return c;
             }
-            action.consume();
         });
+        amountSpinner.getEditor().setTextFormatter(textFormatterDigit);
     }
 }
