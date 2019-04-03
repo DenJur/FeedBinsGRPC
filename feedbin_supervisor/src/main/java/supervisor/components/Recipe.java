@@ -148,7 +148,7 @@ public class Recipe {
             //add error message string for every ingredient that was not available in the bins in full
             //values of less than 1 cubic litter are disregarded
             if (ingredient.getIngredientAmount() >= 1) errors.append(
-                    String.format("Bins are lacking %d %s.%n", (int) ingredient.getIngredientAmount(),
+                    String.format("Bins are lacking %d cubic litters %s.%n", (int) ingredient.getIngredientAmount(),
                             ingredient.getProductName()));
         }
 
