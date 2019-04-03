@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Dialog used to build a recipe
+ */
 public class RecipeDialog extends Dialog<Recipe> implements Initializable {
 
     private final RecipeBuilder builder;
@@ -41,11 +44,13 @@ public class RecipeDialog extends Dialog<Recipe> implements Initializable {
             Parent root = loader.load();
             getDialogPane().setContent(root);
 
-
-            ButtonType connect = new ButtonType("Connect", ButtonBar.ButtonData.OK_DONE);
+            //add dialog buttons
+            ButtonType produce = new ButtonType("Produce", ButtonBar.ButtonData.OK_DONE);
             ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
             setResultConverter(buttonType -> {
-                if (buttonType == connect) {
+                //if button pressed was the connect button
+                if (buttonType == produce) {
+                    //try to build the Recipe object
                     try {
                         return builder.build(productNameField.getText(), productAmountSpinner.getValue());
                     } catch (RecipeBuildingException | IngredientOperationException e) {
@@ -54,7 +59,7 @@ public class RecipeDialog extends Dialog<Recipe> implements Initializable {
                 }
                 return null;
             });
-            getDialogPane().getButtonTypes().setAll(connect, cancel);
+            getDialogPane().getButtonTypes().setAll(produce, cancel);
             setTitle("Recipe");
             setHeaderText("Provide ingredient information for the recipe production");
 
@@ -65,9 +70,12 @@ public class RecipeDialog extends Dialog<Recipe> implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //setup value factory for the ingredient spinner
         SpinnerValueFactory.DoubleSpinnerValueFactory factory =
                 new SpinnerValueFactory.DoubleSpinnerValueFactory(1.0, 100.0, 0.0, 1.0);
         ingredientAmountSpinner.setValueFactory(factory);
+
+        //add text formatter due o Java bug https://bugs.openjdk.java.net/browse/JDK-8150962
         TextFormatter<Object> textFormatterDigit = new TextFormatter<>(c -> {
 
             if (c.getText().matches("[^0-9]+") && !c.getText().isEmpty())
@@ -83,9 +91,12 @@ public class RecipeDialog extends Dialog<Recipe> implements Initializable {
         });
         ingredientAmountSpinner.getEditor().setTextFormatter(textFormatterDigit);
 
+        //setup value factory for the final product amount spinner
         SpinnerValueFactory.IntegerSpinnerValueFactory factoryProduct =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, Integer.MAX_VALUE, 1);
         productAmountSpinner.setValueFactory(factoryProduct);
+
+        //add text formatter due o Java bug https://bugs.openjdk.java.net/browse/JDK-8150962
         textFormatterDigit = new TextFormatter<>(c -> {
 
             if (c.getText().matches("[^0-9]+") && !c.getText().isEmpty())
@@ -101,9 +112,11 @@ public class RecipeDialog extends Dialog<Recipe> implements Initializable {
         });
         productAmountSpinner.getEditor().setTextFormatter(textFormatterDigit);
 
+        //setup ingredient list
         ingredientListView.setCellFactory(param -> new IngredientCell(builder));
         ingredientListView.setItems(builder.getIngredients());
 
+        //setup ingredient and final product name text fields
         TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
             String text = change.getControlNewText();
             if (!text.trim().isEmpty()) {
@@ -123,6 +136,6 @@ public class RecipeDialog extends Dialog<Recipe> implements Initializable {
         productNameField.setTextFormatter(textFormatter);
 
         ingredientAddButton.setOnMouseClicked(event ->
-                builder.addIngredient(new Ingredient(ingredientNameField.getText(), ingredientAmountSpinner.getValue()/100)));
+                builder.addIngredient(new Ingredient(ingredientNameField.getText(), ingredientAmountSpinner.getValue() / 100)));
     }
 }

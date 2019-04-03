@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Dialog used to change the stuff that is inside a feed bin
+ */
 public class StuffChangeNameDialog extends Dialog<String> implements Initializable {
     @FXML
     private TextField stuffName;
@@ -23,7 +26,7 @@ public class StuffChangeNameDialog extends Dialog<String> implements Initializab
             Parent root = loader.load();
             getDialogPane().setContent(root);
 
-
+            //add dialog buttons
             ButtonType change = new ButtonType("Change", ButtonBar.ButtonData.OK_DONE);
             ButtonType cancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
             setResultConverter(buttonType -> {
@@ -43,6 +46,7 @@ public class StuffChangeNameDialog extends Dialog<String> implements Initializab
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //prohibit use of empty name
         TextFormatter<String> textFormatter = new TextFormatter<>(change -> {
             String text = change.getControlNewText();
             if (!text.trim().isEmpty()) {

@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controller for ListView cell that shows recipe ingredient
+ */
 public class IngredientCell extends ListCell<Ingredient> implements Initializable {
 
     private final RecipeBuilder builder;
@@ -38,6 +41,7 @@ public class IngredientCell extends ListCell<Ingredient> implements Initializabl
     protected void updateItem(Ingredient item, boolean empty) {
         super.updateItem(item, empty);
         if (!empty || item != null) {
+            //update ingredient label
             ingredientInfoLabel.setText(String.format("%s %.2f%%", item.getProductName(), item.getIngredientAmount() * 100));
             setGraphic(boxContainer);
         } else {
@@ -48,6 +52,7 @@ public class IngredientCell extends ListCell<Ingredient> implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //on remove button click remove this item from the list
         removeButton.setOnMouseClicked(event -> builder.removeIngredient(this.getItem()));
     }
 }
