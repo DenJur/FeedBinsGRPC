@@ -36,8 +36,9 @@ public class RecipeBuilder {
      *
      * @param toAdd - ingredient to be added
      */
-    public void addIngredient(Ingredient toAdd) {
+    public RecipeBuilder addIngredient(Ingredient toAdd) {
         ingredients.add(toAdd);
+        return this;
     }
 
     /**
@@ -45,8 +46,9 @@ public class RecipeBuilder {
      *
      * @param toRemove - ingredient to be removed
      */
-    public void removeIngredient(Ingredient toRemove) {
+    public RecipeBuilder removeIngredient(Ingredient toRemove) {
         ingredients.remove(toRemove);
+        return this;
     }
 
     /**
