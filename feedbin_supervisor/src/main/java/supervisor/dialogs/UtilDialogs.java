@@ -18,7 +18,7 @@ public class UtilDialogs {
     public static void ShowErrorDialog(Exception exception, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setHeaderText("An error has occurred when trying to contact the server!");
+        alert.setHeaderText("An error has occurred!");
         alert.setContentText(message);
 
         //Print exception stack trace to string
