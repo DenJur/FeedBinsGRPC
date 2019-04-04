@@ -55,16 +55,16 @@ public class StuffAmountDialog extends Dialog<Integer> implements Initializable 
         //add text formatter due o Java bug https://bugs.openjdk.java.net/browse/JDK-8150962
         TextFormatter<Object> textFormatterDigit = new TextFormatter<>(c -> {
 
-            if (c.getText().matches("[^0-9]+") && !c.getText().isEmpty())
-                return null;
-
-            try {
-                Integer newVal = Integer.parseInt(c.getControlNewText());
-                return (newVal >= factory.getMin() && factory.getMax() >= newVal) ? c : null;
-            } catch (Exception ex) {
-                c.setText("0");
-                return c;
+            if (c.getControlNewText().matches("^-?([0-9]+)")) {
+                try {
+                    Integer newVal = Integer.parseInt(c.getControlNewText());
+                    return (newVal >= factory.getMin() && factory.getMax() >= newVal) ? c : null;
+                } catch (Exception ex) {
+                    c.setText("0");
+                    return c;
+                }
             }
+            return null;
         });
         amountSpinner.getEditor().setTextFormatter(textFormatterDigit);
     }
